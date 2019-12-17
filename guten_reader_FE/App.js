@@ -1,18 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import {mockText} from './mock-data'
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {Text} from 'react-native'
 import Reader from './Components/Reader/Reader.js';
 import HomeScreen from './Components/HomeScreen/HomeScreen.js'
-import 'react-native-gesture-handler'
+import 'react-native-gesture-handler';
+import * as Font from 'expo-font'
+import * as React from 'react';
+import { registerRootComponent } from 'expo';
 
-const MainNavigator = createStackNavigator({
-  HomeScreen: {screen: HomeScreen},
-  Reader: { screen: Reader }
-});
+class App extends React.Component {
+  componentDidMount() {
+    Font.loadAsync({
+      'Roboto': require('./assets/fonts/Roboto.ttf'),
+    });
+   const MainNavigator = createStackNavigator({
+      HomeScreen: {screen: HomeScreen},
+      Reader: { screen: Reader }
+    });
+    createAppContainer(MainNavigator)
+  }
+  
+  render() {
+    return(
+      <HomeScreen />
+    )
 
-const App = createAppContainer(MainNavigator);
+  }
+  
+}
 
 export default App;
 
