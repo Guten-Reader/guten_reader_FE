@@ -19,7 +19,7 @@ class Reader extends React.Component {
 
 const AppNavigator = createStackNavigator({
   Reader: {
-    screen: Reader,
+    screen: Reader
   },
 });
 
