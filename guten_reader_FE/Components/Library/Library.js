@@ -14,7 +14,7 @@ class Library extends React.Component {
   render() {
     return (
       <View>
-        <Text>Library</Text>
+        <Text>Guten Reader</Text>
       </View>
     );
   }
