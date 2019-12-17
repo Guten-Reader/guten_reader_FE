@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import {mockText} from './mock-data'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.mockText}>{mockText}</Text>
-    </View>
+    // Might need to change ScrollView to FlatView which renders on page view, not all at once
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.mockText}>{mockText}</Text>
+      </View>
+    </ScrollView>
   );
 }
 
@@ -18,9 +21,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginLeft: '10%',
     marginRight: '10%',
+    flex: 1,
+    borderColor: 'red',
+    borderWidth: 1
   },
 
   mockText: {
-    fontSize: 20
+    fontSize: 20,
+    marginTop: 40
   }
 });
