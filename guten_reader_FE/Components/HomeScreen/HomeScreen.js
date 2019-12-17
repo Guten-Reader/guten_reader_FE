@@ -38,8 +38,13 @@ class HomeScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('Reader')}
           style={{ flex: 1 }}
         />
+        <Button
+          title="Go to Library"
+          onPress={() => this.props.navigation.navigate('Library')}
+          style={{ flex: 1 }}
+        />
         </View>
-     
+
       </View>
     );
   }
@@ -59,4 +64,3 @@ const styles = StyleSheet.create({
 })
 
 export default createAppContainer(AppNavigator);
-
