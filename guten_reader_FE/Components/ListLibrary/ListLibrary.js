@@ -8,7 +8,7 @@ export default function Library(props) {
       return (
         <View>
           <Text>{book}</Text>
-          <Button title="READ"></Button>
+          <Button title="READ" onPress={props.downloadBook}></Button>
         </View>
       )
     })
