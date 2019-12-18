@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 export default function Library(props) {
 
   function displayBooks() {
     return props.books.map((book) => {
-      return <Text>{book}</Text>
+      return (
+        <View>
+          <Text>{book}</Text>
+          <Button title="READ"></Button>
+        </View>
+      )
     })
   }
 

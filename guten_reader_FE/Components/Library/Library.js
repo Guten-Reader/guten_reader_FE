@@ -11,7 +11,7 @@ class Library extends React.Component {
   constructor() {
     super();
     this.state = {
-      books: ["book1", "book2"],
+      books: ["book1", "book2", "book3"],
       error: ''
     }
   }
@@ -20,6 +20,21 @@ class Library extends React.Component {
     Font.loadAsync({
       'Roboto': require('../../assets/fonts/Roboto.ttf'),
     });
+    this.addBookMsg();
+  }
+
+  addBook(book) {
+    this.setState({
+      books: [...this.state.books, book]
+    })
+  }
+
+  addBookMsg(){
+    if(!this.state.books.length) {
+      this.setState({
+        error: 'You have no books to read, please search and download a book for your reading pleasure!'
+      })
+    }
   }
 
   render() {
@@ -27,6 +42,7 @@ class Library extends React.Component {
       <View>
         <Text>Guten Reader</Text>
         <ListLibrary books={this.state.books}/>
+        <Text>{this.state.error}</Text>
         <MenuLibrary />
       </View>
     );
