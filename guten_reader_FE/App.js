@@ -8,9 +8,9 @@ import * as Font from 'expo-font';
 
 
 const MainNavigator = createStackNavigator({
-  HomeScreen: {screen: HomeScreen},
+  // HomeScreen: {screen: HomeScreen},
+  Library: { screen: Library },
   Reader: { screen: Reader },
-  Library: { screen: Library }
 });
 
 const App = createAppContainer(MainNavigator);

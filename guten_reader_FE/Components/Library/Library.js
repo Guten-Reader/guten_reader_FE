@@ -37,15 +37,22 @@ class Library extends React.Component {
     }
   }
 
-  downloadBook() {
+  downloadBook = () => {
     console.log('download')
+    this.routeToRead()
   }
+
+  routeToRead(){
+    console.log('in read')
+    this.props.navigation.navigate('Reader')
+  }
+  
 
   render() {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook}/>
+        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} routeToRead={this.routeToRead}/>
         <Text>{this.state.error}</Text>
         <MenuLibrary />
       </View>
