@@ -3,7 +3,8 @@ import { Button, View, Text, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Toolbar } from 'react-native-material-ui';
-import * as Font from 'expo-font'
+import * as Font from 'expo-font';
+import ListLibrary from '../ListLibrary/ListLibrary';
 
 class Library extends React.Component {
   componentDidMount() {
@@ -15,6 +16,7 @@ class Library extends React.Component {
     return (
       <View>
         <Text>Guten Reader</Text>
+        <ListLibrary />
       </View>
     );
   }
