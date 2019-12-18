@@ -3,7 +3,9 @@ import { Button, View, Text, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Toolbar } from 'react-native-material-ui';
-import * as Font from 'expo-font'
+import * as Font from 'expo-font';
+// import SplashScreen from 'react-native-splash-screen';
+// import {useEffect} from 'react';
 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -11,6 +13,7 @@ class HomeScreen extends React.Component {
       'Roboto': require('../../assets/fonts/Roboto.ttf'),
     });
   }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between' }}>

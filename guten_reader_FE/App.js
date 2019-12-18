@@ -5,6 +5,7 @@ import HomeScreen from './Components/HomeScreen/HomeScreen.js';
 import 'react-native-gesture-handler';
 import * as Font from 'expo-font';
 
+
 const MainNavigator = createStackNavigator({
   HomeScreen: {screen: HomeScreen},
   Reader: { screen: Reader }
