@@ -10,7 +10,13 @@ class HomeScreen extends React.Component {
     Font.loadAsync({
       'Roboto': require('../../assets/fonts/Roboto.ttf'),
     });
+  };
+
+  search() {
+    console.log("We be searching!!!!")
+    this.props.navigation.navigate('Search')
   }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-between' }}>
@@ -18,9 +24,10 @@ class HomeScreen extends React.Component {
         <Toolbar
           leftElement="menu"
           centerElement="Search"
-          searchable={{
+          searchable=
+          {{
           autoFocus: true,
-          placeholder: 'Search',
+          placeholder: 'Title/Author',
         }}
         rightElement={{
             menu: {
@@ -35,7 +42,12 @@ class HomeScreen extends React.Component {
         <Text>Home Screen</Text>
         <Button
           title="Go to Reader"
-          onPress={() => this.props.navigation.navigate('Reader')}
+          onPress={() => (this.props.navigation.navigate('Reader'))}
+          style={{ flex: 1 }}
+        />
+        <Button
+          title="Go to Search"
+          onPress={() => (this.props.navigation.navigate('Search'))}
           style={{ flex: 1 }}
         />
         </View>
