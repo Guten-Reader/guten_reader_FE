@@ -43,7 +43,7 @@ class Library extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
         <ListLibrary books={this.state.books} downloadBook={this.downloadBook}/>
         <Text>{this.state.error}</Text>
@@ -60,6 +60,10 @@ const AppNavigator = createStackNavigator({
 });
 
 const styles = StyleSheet.create({
+  library: {
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  },
   title: {
    fontSize: 30,
    margin: 10
