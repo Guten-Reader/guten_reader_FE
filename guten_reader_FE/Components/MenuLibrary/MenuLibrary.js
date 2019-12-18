@@ -5,7 +5,7 @@ export default function MenuLibrary() {
 
     return (
       <View>
-        <Text>Library Menu</Text>
+        <Text>SEARCH</Text>
       </View>
     )
 
