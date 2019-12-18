@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default function Library(props) {
 
   function displayBooks() {
     return props.books.map((book) => {
       return (
-        <View>
-          <Text>{book}</Text>
+        <View style={styles.list}>
+          <Text style={styles.listItem}>{book}</Text>
           <Button title="READ" onPress={props.downloadBook}></Button>
         </View>
       )
@@ -19,5 +19,16 @@ export default function Library(props) {
         {displayBooks()}
       </View>
     )
-
 }
+
+const styles = StyleSheet.create({
+  list: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20
+ },
+  listItem: {
+   fontSize: 20
+  }
+})

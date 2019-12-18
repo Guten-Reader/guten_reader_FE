@@ -11,7 +11,7 @@ class Library extends React.Component {
   constructor() {
     super();
     this.state = {
-      books: ["book1", "book2", "book3"],
+      books: ["Book Title 1", "Book Title 2", "Book Title 3"],
       error: ''
     }
   }
@@ -44,7 +44,7 @@ class Library extends React.Component {
   render() {
     return (
       <View>
-        <Text>Guten Reader</Text>
+        <Text style={styles.title}>Guten Reader</Text>
         <ListLibrary books={this.state.books} downloadBook={this.downloadBook}/>
         <Text>{this.state.error}</Text>
         <MenuLibrary />
@@ -60,9 +60,9 @@ const AppNavigator = createStackNavigator({
 });
 
 const styles = StyleSheet.create({
-  toolbar: {
-   width: '100%',
-   height: 110
+  title: {
+   fontSize: 30,
+   margin: 10
   }
 })
 
