@@ -8,16 +8,25 @@ import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
 
 class Library extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      books: ["book1", "book2"],
+      error: ''
+    }
+  }
+
   componentDidMount() {
     Font.loadAsync({
       'Roboto': require('../../assets/fonts/Roboto.ttf'),
     });
   }
+
   render() {
     return (
       <View>
         <Text>Guten Reader</Text>
-        <ListLibrary />
+        <ListLibrary books={this.state.books}/>
         <MenuLibrary />
       </View>
     );
