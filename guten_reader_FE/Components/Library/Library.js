@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { Toolbar } from 'react-native-material-ui';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
+import MenuLibrary from '../MenuLibrary/MenuLibrary';
 
 class Library extends React.Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class Library extends React.Component {
       <View>
         <Text>Guten Reader</Text>
         <ListLibrary />
+        <MenuLibrary />
       </View>
     );
   }
