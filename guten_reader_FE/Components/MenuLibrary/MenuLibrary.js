@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Button } from 'react-native';
 
-export default function MenuLibrary() {
+export default function MenuLibrary(props) {
 
     return (
       <View>
-        <Text>SEARCH</Text>
+        <Button title="SEARCH" onPress={() => this.props.navigation.navigate('Search')}></Button>
       </View>
     )
 

@@ -10,7 +10,7 @@ const AppContainer = createAppContainer({
   Library: Library,
 },
 {
-  initialRouteName: 'Home',
+  initialRouteName: 'Library',
 }
 );
 
