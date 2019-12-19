@@ -16,9 +16,11 @@
     "react-native-material-ui": "^1.30.1",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^6.6.0",
+    "react-native-video": "^5.0.2",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.10.3"
+    "react-navigation-stack": "^1.10.3",
+    "rnpm": "^1.9.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0"
