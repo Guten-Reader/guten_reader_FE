@@ -2,13 +2,14 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default function Library(props) {
+  console.log('props', props)
 
   function displayBooks() {
     return props.books.map((book) => {
       return (
         <View style={styles.list}>
           <Text style={styles.listItem}>{book}</Text>
-          <Button title="READ" onPress={props.downloadBook}></Button>
+          <Button onPress={props.downloadBook} title="READ" onPress={props.downloadBook}></Button>
         </View>
       )
     })
