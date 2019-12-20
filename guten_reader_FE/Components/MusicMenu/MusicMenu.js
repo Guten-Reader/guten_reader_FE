@@ -6,13 +6,13 @@ import { createAppContainer } from 'react-navigation';
 
 export default class MusicMenu extends Component {
   constructor() {
-    super(props);
+    super();
 
     this.state = {
       paused: true
     }
   }
-  
+
   state = {isMuted: false}
 
   toggleSound = () => {
