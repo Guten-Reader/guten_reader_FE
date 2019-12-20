@@ -5,7 +5,6 @@ import Reader from '../Reader/Reader';
 import Library from '../Library/Library';
 
 const AppContainer = createAppContainer({
-  // Home: HomeScreen,
   Reader: Reader,
   Library: Library,
 },
@@ -19,4 +18,3 @@ export default class App extends React.Component {
     return <AppContainer />;
   }
 }
-

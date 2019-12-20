@@ -9,7 +9,7 @@ export default function Library(props) {
       return (
         <View style={styles.list}>
           <Text style={styles.listItem}>{book}</Text>
-          <Button onPress={props.downloadBook} title="READ" onPress={props.downloadBook}></Button>
+          <Button style={styles.button} onPress={props.downloadBook} title="READ" onPress={props.downloadBook}></Button>
         </View>
       )
     })
@@ -28,8 +28,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20
- },
+  },
   listItem: {
    fontSize: 20
-  }
+   },
+   button: {
+    fontSize: 20,
+    color: '#53E69B'
+   }
 })

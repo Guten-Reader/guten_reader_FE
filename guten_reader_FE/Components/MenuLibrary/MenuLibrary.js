@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Button, StyleSheet, Text } from 'react-native';
-import { Toolbar } from 'react-native-material-ui';
 
 export default function MenuLibrary(props) {
     return (
       <View style={styles.toolbar}>
-        <Text>SEARCH</Text>
+        <Text style={styles.text}>SEARCH</Text>
       </View>
     )
 }
@@ -21,5 +20,8 @@ const styles = StyleSheet.create({
     height: 65,
     width: '100%',
     alignItems: 'center'
+  },
+  text: {
+    fontSize: 20
   }
 })
