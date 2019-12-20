@@ -7,9 +7,12 @@ export default function Library(props) {
   function displayBooks() {
     return props.books.map((book) => {
       return (
-        <View style={styles.list}>
-          <Text style={styles.listItem}>{book}</Text>
-          <Button style={styles.button} onPress={props.downloadBook} title="READ"></Button>
+        <View style={styles.listCont}>
+          <Text style={styles.line}>______________________________________________________</Text>
+          <View style={styles.list}>
+            <Text style={styles.listItem}>{book}</Text>
+            <Button style={styles.button} onPress={props.downloadBook} title="READ"></Button>
+          </View>
         </View>
       )
     })
@@ -35,5 +38,13 @@ const styles = StyleSheet.create({
    button: {
     fontSize: 20,
     color: '#53E69B'
+  },
+   listCont: {
+     flexDirection: 'column',
+   },
+   line: {
+     color: '#DDDDDD',
+     paddingLeft: 20,
+     marginBottom: -20,
    }
 })

@@ -10,7 +10,7 @@ class Library extends React.Component {
   constructor() {
     super();
     this.state = {
-      books: ["Book Title 1", "Book Title 2", "Book Title 3"],
+      books: ["Alice In Wonderland", "The Jungle Book", "Harry Potter"],
       error: ''
     }
   }
