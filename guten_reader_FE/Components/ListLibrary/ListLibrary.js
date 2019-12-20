@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 export default function Library(props) {
-  console.log('props', props)
 
   function displayBooks() {
     return props.books.map((book) => {
@@ -37,14 +38,14 @@ const styles = StyleSheet.create({
   },
   listItem: {
    fontSize: 20
-   },
+  },
    button: {
     fontSize: 20,
     color: '#53E69B'
   },
    listCont: {
      flexDirection: 'column',
-   },
+  },
    line: {
      color: '#DDDDDD',
      paddingLeft: 20,

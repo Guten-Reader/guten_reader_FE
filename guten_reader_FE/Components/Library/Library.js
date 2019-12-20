@@ -57,7 +57,7 @@ class Library extends React.Component {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook}/>
+        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} />
         <Text>{this.state.error}</Text>
         <MenuLibrary />
       </View>
