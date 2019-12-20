@@ -18,7 +18,10 @@ export default function MenuLibrary(props) {
 const styles = StyleSheet.create({
   toolbar: {
     alignItems: 'center',
-    width: '100%',
-    height: 110
+    color:'#53E69B',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0
   }
 })

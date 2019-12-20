@@ -37,22 +37,15 @@ class Library extends React.Component {
     }
   }
 
-  downloadBook = () => {
+  downloadBook() {
     console.log('download')
-    this.routeToRead()
   }
-
-  routeToRead(){
-    console.log('in read')
-    this.props.navigation.navigate('Reader')
-  }
-  
 
   render() {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} routeToRead={this.routeToRead}/>
+        <ListLibrary books={this.state.books} downloadBook={this.downloadBook}/>
         <Text>{this.state.error}</Text>
         <MenuLibrary />
       </View>
@@ -68,12 +61,13 @@ const AppNavigator = createStackNavigator({
 
 const styles = StyleSheet.create({
   library: {
-    flexDirection: 'column',
-    justifyContent: 'space-between'
+    flex: 1,
+    flexDirection: 'column'
   },
   title: {
    fontSize: 30,
-   margin: 10
+   margin: 15,
+   marginTop: 30
   }
 })
 
