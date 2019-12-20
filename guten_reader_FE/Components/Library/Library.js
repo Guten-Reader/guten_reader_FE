@@ -10,7 +10,20 @@ class Library extends React.Component {
   constructor() {
     super();
     this.state = {
-      books: ["Alice In Wonderland", "The Jungle Book", "Harry Potter"],
+      books: [
+         { id: 1,
+           guten_id: 123456,
+           title: "Alice In WonderLand",
+           author: "example author" },
+         { id: 2,
+           guten_id: 123456,
+           title: "The Jungle Book",
+           author: "example author" },
+         { id: 3,
+           guten_id: 123456,
+           title: "Harry Potter",
+           author: "example author" },
+          ],
       error: ''
     }
   }
@@ -65,6 +78,7 @@ const styles = StyleSheet.create({
   },
   title: {
    fontSize: 30,
+   fontWeight: 'bold',
    margin: 15,
    marginTop: 30
   }

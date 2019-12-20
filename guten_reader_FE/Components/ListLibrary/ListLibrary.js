@@ -10,7 +10,10 @@ export default function Library(props) {
         <View style={styles.listCont}>
           <Text style={styles.line}>______________________________________________________</Text>
           <View style={styles.list}>
-            <Text style={styles.listItem}>{book}</Text>
+            <View>
+              <Text style={styles.listItem, styles.title}>{book.title}</Text>
+              <Text style={styles.listItem, styles.author}>{book.author}</Text>
+            </View>
             <Button style={styles.button} onPress={props.downloadBook} title="READ"></Button>
           </View>
         </View>
@@ -46,5 +49,12 @@ const styles = StyleSheet.create({
      color: '#DDDDDD',
      paddingLeft: 20,
      marginBottom: -20,
+   },
+   title: {
+     fontWeight: 'bold',
+     fontSize: 20
+   },
+   author: {
+     fontSize: 15
    }
 })
