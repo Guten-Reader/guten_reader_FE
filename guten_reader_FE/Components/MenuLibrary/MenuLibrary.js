@@ -4,7 +4,7 @@ import { View, Button, StyleSheet, Text } from 'react-native';
 export default function MenuLibrary(props) {
     return (
       <View style={styles.toolbar}>
-        <Text style={styles.text}>SEARCH</Text>
+        <Button style={styles.button} title="SEARCH"></Button>
       </View>
     )
 }
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center'
   },
-  text: {
+  button: {
     fontSize: 20
   }
 })

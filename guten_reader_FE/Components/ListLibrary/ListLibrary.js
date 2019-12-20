@@ -9,7 +9,7 @@ export default function Library(props) {
       return (
         <View style={styles.list}>
           <Text style={styles.listItem}>{book}</Text>
-          <Button style={styles.button} onPress={props.downloadBook} title="READ" onPress={props.downloadBook}></Button>
+          <Button style={styles.button} onPress={props.downloadBook} title="READ"></Button>
         </View>
       )
     })
