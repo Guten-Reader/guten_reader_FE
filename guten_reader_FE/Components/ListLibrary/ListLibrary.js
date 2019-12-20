@@ -7,7 +7,7 @@ export default function Library(props) {
   function displayBooks() {
     return props.books.map((book) => {
       return (
-        <View style={styles.listCont}>
+        <View key={book.id} style={styles.listCont}>
           <Text style={styles.line}>______________________________________________________</Text>
           <View style={styles.list}>
             <View>
@@ -52,7 +52,9 @@ const styles = StyleSheet.create({
    },
    title: {
      fontWeight: 'bold',
-     fontSize: 20
+     fontSize: 20,
+     paddingTop: 10,
+     paddingBottom: 10
    },
    author: {
      fontSize: 15

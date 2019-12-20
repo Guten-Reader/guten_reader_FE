@@ -14,15 +14,15 @@ class Library extends React.Component {
          { id: 1,
            guten_id: 123456,
            title: "Alice In WonderLand",
-           author: "example author" },
+           author: "Lewis Carroll" },
          { id: 2,
            guten_id: 123456,
            title: "The Jungle Book",
-           author: "example author" },
+           author: "Rudyard Kipling" },
          { id: 3,
            guten_id: 123456,
            title: "Harry Potter",
-           author: "example author" },
+           author: "J. K. Rowling" },
           ],
       error: ''
     }
