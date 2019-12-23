@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, View, Button, Text } from 'react-native';
 
-const ListSearch = (props) => {
+const ListSearch = ({ book }) => {
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.text}>ListSearch Items</ScrollView>
+      <Text>{book.title}</Text>
+      <Text>{book.author}</Text>
       <Button title="DOWNLOAD" style={styles.button}/>
     </View>
   )
@@ -12,15 +13,11 @@ const ListSearch = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#000'
   },
   text: {
-    color: '#000'
   },
   button: {
-    color: '#000'
   }
-})
+});
 
 export default ListSearch;
