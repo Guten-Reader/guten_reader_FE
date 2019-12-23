@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { Toolbar } from 'react-native-material-ui';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
@@ -11,7 +10,20 @@ class Library extends React.Component {
   constructor() {
     super();
     this.state = {
-      books: ["Book Title 1", "Book Title 2", "Book Title 3"],
+      books: [
+         { id: 1,
+           guten_id: 123456,
+           title: "Alice In WonderLand",
+           author: "Lewis Carroll" },
+         { id: 2,
+           guten_id: 123456,
+           title: "The Jungle Book",
+           author: "Rudyard Kipling" },
+         { id: 3,
+           guten_id: 123456,
+           title: "Harry Potter",
+           author: "J. K. Rowling" },
+          ],
       error: ''
     }
   }
@@ -37,22 +49,15 @@ class Library extends React.Component {
     }
   }
 
-  downloadBook = () => {
+  downloadBook() {
     console.log('download')
-    this.routeToRead()
   }
-
-  routeToRead(){
-    console.log('in read')
-    this.props.navigation.navigate('Reader')
-  }
-  
 
   render() {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} routeToRead={this.routeToRead}/>
+        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} />
         <Text>{this.state.error}</Text>
         <MenuLibrary />
       </View>
@@ -68,12 +73,14 @@ const AppNavigator = createStackNavigator({
 
 const styles = StyleSheet.create({
   library: {
-    flexDirection: 'column',
-    justifyContent: 'space-between'
+    flex: 1,
+    flexDirection: 'column'
   },
   title: {
    fontSize: 30,
-   margin: 10
+   fontWeight: 'bold',
+   margin: 15,
+   marginTop: 30
   }
 })
 
