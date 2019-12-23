@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import mockText from '../../mock-data'
+import mockText from '../../mock-data';
+import MusicMenu from '../MusicMenu/MusicMenu'
 
 class Reader extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class Reader extends React.Component {
         <ScrollView>
           <View style={styles.container}>
             <Text style={styles.mockText}>{mockText}</Text>
+            <MusicMenu />
           </View>
         </ScrollView>
       

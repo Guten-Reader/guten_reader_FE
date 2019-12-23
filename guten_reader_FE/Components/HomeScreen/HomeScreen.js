@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
+
 import { createStackNavigator } from 'react-navigation-stack';
 import { Toolbar } from 'react-native-material-ui';
-import * as Font from 'expo-font'
+import * as Font from 'expo-font';
+// import SplashScreen from '../SplashScreen/SplashScreen'
+// import SplashScreen from 'react-native-splash-screen';
+// import {useEffect} from 'react';
+import { SplashScreen } from 'expo'
 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -50,8 +55,13 @@ class HomeScreen extends React.Component {
           onPress={() => (this.props.navigation.navigate('Search'))}
           style={{ flex: 1 }}
         />
+        <Button
+          title="Go to Library"
+          onPress={() => this.props.navigation.navigate('Library')}
+          style={{ flex: 1 }}
+        />
         </View>
-     
+
       </View>
     );
   }
@@ -71,4 +81,3 @@ const styles = StyleSheet.create({
 })
 
 export default createAppContainer(AppNavigator);
-
