@@ -1,10 +1,18 @@
 import React from 'react';
 import { View, Button, StyleSheet, Text } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { withNavigation } from 'react-navigation';
 
-export default function MenuLibrary(props) {
+function MenuLibrary(props) {
+
+  const handlePress = () => {
+    props.navigation.navigate('Search')
+  }
+
     return (
       <View style={styles.toolbar}>
-        <Button style={styles.button} title="SEARCH"></Button>
+        <Button style={styles.button} onPress={handlePress} title="SEARCH"></Button>
       </View>
     )
 }
@@ -25,3 +33,5 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 })
+
+export default withNavigation(MenuLibrary);
