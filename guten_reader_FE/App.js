@@ -4,10 +4,10 @@ import Reader from './Components/Reader/Reader.js';
 import HomeScreen from './Components/HomeScreen/HomeScreen.js';
 import Library from './Components/Library/Library.js';
 import 'react-native-gesture-handler';
-import * as Font from 'expo-font';
 
 
 const MainNavigator = createStackNavigator({
+
   Library: {
     screen: Library,
     navigationOptions: {
