@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import mockText from '../../mock-data';
-import MusicMenu from '../MusicMenu/MusicMenu'
+import MusicMenu from '../MusicMenu/MusicMenu';
+import { withNavigation } from 'react-navigation';
 
 class Reader extends React.Component {
   render() {
@@ -11,10 +12,11 @@ class Reader extends React.Component {
         <ScrollView>
           <View style={styles.container}>
             <Text style={styles.mockText}>{mockText}</Text>
+            <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
             <MusicMenu />
           </View>
         </ScrollView>
-      
+
     );
   }
 }
@@ -35,12 +37,15 @@ const styles = StyleSheet.create({
     marginRight: '10%',
     flex: 1,
   },
-
   mockText: {
     fontSize: 20,
     marginTop: 40
-  }
+  },
+  button: {
+   fontSize: 20,
+   color: '#53E69B'
+ }
 });
 
-export default createAppContainer(AppNavigator);
-
+// export default createAppContainer(AppNavigator);
+export default withNavigation(Reader);

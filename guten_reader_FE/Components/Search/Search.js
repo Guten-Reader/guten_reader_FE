@@ -61,9 +61,9 @@ class Search extends Component {
     return (
       <View style={styles.container}>
         <Text>Search by Title or Author:</Text>
-        <TextInput 
-          placeholder="Title or Author" 
-          style={styles.input} 
+        <TextInput
+          placeholder="Title or Author"
+          style={styles.input}
           onChangeText={this.updateState}
           value={this.state.searchQuery}
         />
@@ -71,7 +71,8 @@ class Search extends Component {
         {this.state.searchResult ? null : <Text>{searchResult}</Text>}
         <ScrollView>
           {renderSearchResults}
-        </ScrollView>  
+        </ScrollView>
+        <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
       </View>
     )
   }

@@ -2,8 +2,14 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { withNavigation } from 'react-navigation';
 
-export default function Library(props) {
+function ListLibrary(props) {
+
+  const handlePress = () => {
+    props.downloadBook()
+    props.navigation.navigate('Reader')
+  }
 
   function displayBooks() {
     return props.books.map((book) => {
@@ -15,7 +21,7 @@ export default function Library(props) {
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>
             </View>
-            <Button style={styles.button} onPress={props.downloadBook} title="READ"></Button>
+            <Button style={styles.button} onPress={handlePress} title="READ"></Button>
           </View>
         </View>
       )
@@ -61,3 +67,5 @@ const styles = StyleSheet.create({
      fontSize: 15
    }
 })
+
+export default withNavigation(ListLibrary);
