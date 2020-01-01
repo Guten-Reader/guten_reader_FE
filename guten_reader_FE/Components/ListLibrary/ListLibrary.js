@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   listItem: {
-   fontSize: 20
+   fontSize: 20,
   },
    button: {
     fontSize: 20,
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
      fontWeight: 'bold',
      fontSize: 20,
      paddingTop: 10,
-     paddingBottom: 10
+     paddingBottom: 10,
+     width: 200
    },
    author: {
      fontSize: 15
