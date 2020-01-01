@@ -5,34 +5,29 @@ import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
+import {getBooks} from '../../apiCalls.js';
 
 class Library extends React.Component {
+
   constructor() {
     super();
     this.state = {
-      books: [
-         { id: 1,
-           guten_id: 123456,
-           title: "Alice In WonderLand",
-           author: "Lewis Carroll" },
-         { id: 2,
-           guten_id: 123456,
-           title: "The Jungle Book",
-           author: "Rudyard Kipling" },
-         { id: 3,
-           guten_id: 123456,
-           title: "Harry Potter",
-           author: "J. K. Rowling" },
-          ],
+      books: [],
       error: ''
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     Font.loadAsync({
       'Roboto': require('../../assets/fonts/Roboto.ttf'),
     });
     this.addBookMsg();
+
+    const books = await getBooks();
+    console.log(books)
+    this.setState({
+      books: books.books
+    });
   }
 
   addBook(book) {
@@ -58,7 +53,6 @@ class Library extends React.Component {
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
         <ListLibrary books={this.state.books} downloadBook={this.downloadBook} />
-        <Text>{this.state.error}</Text>
         <MenuLibrary />
       </View>
     );
