@@ -23,7 +23,7 @@ class Library extends React.Component {
     });
     this.addBookMsg();
 
-    const books = await getBooks();
+    const books = await getBooks(4);
     console.log(books)
     this.setState({
       books: books.books
@@ -44,8 +44,8 @@ class Library extends React.Component {
     }
   }
 
-  downloadBook() {
-    console.log('download')
+  async downloadBook(userId, bookId) {
+    const bookText = await getBookText(userId, bookId)
   }
 
   render() {

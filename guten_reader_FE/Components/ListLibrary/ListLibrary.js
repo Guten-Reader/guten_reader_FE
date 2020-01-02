@@ -7,7 +7,7 @@ import { withNavigation } from 'react-navigation';
 function ListLibrary(props) {
 
   const handlePress = () => {
-    props.downloadBook()
+    props.downloadBook(4, 7)
     props.navigation.navigate('Reader')
   }
 
