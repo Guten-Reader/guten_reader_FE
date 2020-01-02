@@ -8,7 +8,6 @@ function ListLibrary(props) {
 
   const handlePress = id => {
     props.downloadBook(4, id)
-    props.navigation.navigate('Reader')
   }
 
   function displayBooks() {
