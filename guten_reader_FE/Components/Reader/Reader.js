@@ -2,21 +2,29 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import mockText from '../../mock-data';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import { withNavigation } from 'react-navigation';
 
 class Reader extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      currentPage: null
+    }
+  }
+
   render() {
+    const bookText =  this.props.navigation.getParam('bookText', 'No text')
+    console.log(bookText)
     return (
         <ScrollView>
           <View style={styles.container}>
-            <Text style={styles.mockText}>{mockText}</Text>
+            <Text style={styles.mockText}>{bookText}</Text>
             <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
             <MusicMenu />
           </View>
         </ScrollView>
-
     );
   }
 }

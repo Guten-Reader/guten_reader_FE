@@ -6,11 +6,13 @@ import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
 import {getBooks, getBookText} from '../../apiCalls.js';
+import { withNavigation } from 'react-navigation';
 
 class Library extends React.Component {
 
-  constructor() {
+  constructor(props) {
     super();
+    this.downloadBook = this.downloadBook.bind(this)
     this.state = {
       books: [],
       error: ''
@@ -43,8 +45,9 @@ class Library extends React.Component {
     }
   }
 
-  async downloadBook (userId, bookId) {
+  async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
+    this.props.navigation.navigate('Reader', {bookText: bookText.data.book[0]})
   }
 
   render() {
@@ -77,4 +80,5 @@ const styles = StyleSheet.create({
   }
 })
 
-export default createAppContainer(AppNavigator);
+// export default createAppContainer(AppNavigator);
+export default withNavigation(Library);
