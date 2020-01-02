@@ -6,8 +6,8 @@ import { withNavigation } from 'react-navigation';
 
 function ListLibrary(props) {
 
-  const handlePress = () => {
-    props.downloadBook(4, 7)
+  const handlePress = id => {
+    props.downloadBook(4, id)
     props.navigation.navigate('Reader')
   }
 
@@ -21,7 +21,7 @@ function ListLibrary(props) {
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>
             </View>
-            <Button style={styles.button} onPress={handlePress} title="READ"></Button>
+            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ"></Button>
           </View>
         </View>
       )

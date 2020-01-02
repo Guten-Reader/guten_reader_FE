@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
-import {getBooks} from '../../apiCalls.js';
+import {getBooks, getBookText} from '../../apiCalls.js';
 
 class Library extends React.Component {
 
@@ -24,7 +24,6 @@ class Library extends React.Component {
     this.addBookMsg();
 
     const books = await getBooks(4);
-    console.log(books)
     this.setState({
       books: books.books
     });
@@ -44,7 +43,7 @@ class Library extends React.Component {
     }
   }
 
-  async downloadBook(userId, bookId) {
+  async downloadBook (userId, bookId) {
     const bookText = await getBookText(userId, bookId)
   }
 
