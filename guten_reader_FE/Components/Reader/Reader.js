@@ -15,12 +15,11 @@ class Reader extends React.Component {
   }
 
   render() {
-    const bookText =  this.props.navigation.getParam('bookText', 'No text')
-    console.log(bookText)
+    const bookText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
         <ScrollView>
           <View style={styles.container}>
-            <Text style={styles.mockText}>{bookText}</Text>
+            <Text style={styles.mockText}>{bookText[3]}</Text>
             <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
             <MusicMenu />
           </View>
