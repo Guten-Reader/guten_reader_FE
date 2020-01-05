@@ -4,26 +4,41 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import { withNavigation } from 'react-navigation';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 class Reader extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      currentPage: null
+      currentPage: 0
     }
+  }
+
+  onSwipeLeft(gestureState) {
+    this.setState(prevState => {
+       return {currentPage: prevState.currentPage + 1}
+    });
+  }
+
+  onSwipeRight(gestureState) {
+    this.setState({
+      currentPage: this.state.currentPage - 1
+    });
   }
 
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
+      <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
         <ScrollView>
           <View style={styles.container}>
-            <Text style={styles.mockText}>{bookText[3]}</Text>
+            <Text style={styles.mockText}>{bookText[this.state.currentPage]}</Text>
             <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
             <MusicMenu />
           </View>
         </ScrollView>
+      </GestureRecognizer>
     );
   }
 }
