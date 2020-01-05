@@ -34,10 +34,9 @@ class Reader extends React.Component {
         <ScrollView>
           <View style={styles.container}>
             <Text style={styles.mockText}>{bookText[this.state.currentPage]}</Text>
-            <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
-            <MusicMenu />
           </View>
         </ScrollView>
+        <MusicMenu />
       </GestureRecognizer>
     );
   }
@@ -51,17 +50,12 @@ const AppNavigator = createStackNavigator({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: '10%',
-    marginRight: '10%',
-    flex: 1,
+    flex: 1
   },
   mockText: {
     fontSize: 20,
-    marginTop: 40
+    marginTop: 20,
+    padding: 20
   },
   button: {
    fontSize: 20,
@@ -69,5 +63,4 @@ const styles = StyleSheet.create({
  }
 });
 
-// export default createAppContainer(AppNavigator);
 export default withNavigation(Reader);

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, Button } from 'react-native';
 import '../../assets/volume-on.png'
 import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, withNavigation } from 'react-navigation';
 
-export default class MusicMenu extends Component {
+class MusicMenu extends Component {
   constructor() {
     super();
 
@@ -37,6 +37,7 @@ export default class MusicMenu extends Component {
         <TouchableOpacity onPress={this.toggleSound}>
           {!this.state.isMuted && <Image style={styles.mute} source={require('../../assets/mute.png')} />}
         </TouchableOpacity>
+        <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
       </View>
     )
   }
@@ -44,8 +45,16 @@ export default class MusicMenu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'black',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: '#53E69B',
+    justifyContent: 'center',
+    height: 65,
+    width: '100%',
+    alignItems: 'center',
+    alignSelf: 'flex-end'
   },
   volume: {
     height: 50,
@@ -57,3 +66,5 @@ const styles = StyleSheet.create({
   }
 
 });
+
+export default withNavigation(MusicMenu);
