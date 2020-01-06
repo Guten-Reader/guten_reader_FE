@@ -4,8 +4,7 @@ import { shallow } from 'enzyme';
 
 import Reader from './Reader';
 
-describe('AddTacoButton', () => {
-  const mockReader = jest.fn();
+describe('Reader renders correctly with Jest', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<Reader />);
     expect(wrapper).toMatchSnapshot();
