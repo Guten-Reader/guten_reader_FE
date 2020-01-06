@@ -32,11 +32,11 @@ describe('getBooks', () => {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(mockResult)
-      })
-    })
+      });
+    });
     const result = await getBooks(1)
     expect(result).toEqual(mockResult)
-    })
+    });
 
     it('should return an error if the fetch is unsuccessful', async() => {
       const error = 'Fetch failed'
@@ -44,8 +44,8 @@ describe('getBooks', () => {
         return Promise.reject(error);
       })
       expect(getBooks(1)).rejects.toEqual(error)
-    })
-  })
+    });
+  });
 
   describe('getBookText', () => {
     beforeEach(() => {
@@ -63,14 +63,13 @@ describe('getBooks', () => {
 
       it('should return a string of text', async() => {
         const mockResult = 'Im a texttt!'
-      window.fetch = jest.fn().mockImplementation(() => {
+        window.fetch = jest.fn().mockImplementation(() => {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(mockResult)
-        })
-      })
+        });
+      });
       const result = await getBookText()
       expect(result).toEqual(mockResult)
-      })
-      
-    })
+      });
+    });
