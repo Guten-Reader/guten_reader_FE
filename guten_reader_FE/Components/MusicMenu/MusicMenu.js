@@ -30,7 +30,7 @@ class MusicMenu extends Component {
       // maybe move sound/mute to two separate buttons, when one is pushed, isPaused is true, whatever
     // )
     return(
-      <View style={styles.container}>
+      <View style={styles.toolbar}>
         <TouchableOpacity onPress={this.toggleSound}>
           {this.state.isMuted === true && <Image style={styles.volume} source={require('../../assets/volume-on.png')} />}
         </TouchableOpacity>
@@ -44,7 +44,7 @@ class MusicMenu extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  toolbar: {
     position: 'absolute',
     bottom: 0,
     right: 0,
@@ -53,8 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 65,
     width: '100%',
-    alignItems: 'center',
-    alignSelf: 'flex-end'
+    alignItems: 'center'
   },
   volume: {
     height: 50,
