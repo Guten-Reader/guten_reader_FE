@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
-import {getBooks, getBookText} from '../../apiCalls.js';
+import {getBooks, getBookText} from '../../../apiCalls.js';
 import { withNavigation } from 'react-navigation';
 
 class Library extends React.Component {
