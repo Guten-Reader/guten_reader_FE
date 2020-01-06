@@ -29,14 +29,16 @@ class Reader extends React.Component {
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
-      <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-        <ScrollView>
-          <View style={styles.container}>
-            <Text style={styles.mockText}>{bookText[this.state.currentPage]}</Text>
-          </View>
-        </ScrollView>
+      <View style={styles.container}>
+        <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
+          <ScrollView>
+              <Text style={styles.mockText}>
+                {bookText[this.state.currentPage]}
+              </Text>
+          </ScrollView>
+        </GestureRecognizer>
         <MusicMenu />
-      </GestureRecognizer>
+      </View>
     );
   }
 }
@@ -49,17 +51,14 @@ const AppNavigator = createStackNavigator({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'column'
   },
   mockText: {
     fontSize: 20,
     marginTop: 20,
     padding: 20
-  },
-  button: {
-   fontSize: 20,
-   color: '#53E69B'
- }
+  }
 });
 
 export default withNavigation(Reader);
