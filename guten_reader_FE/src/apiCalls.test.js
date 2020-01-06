@@ -46,3 +46,19 @@ describe('getBooks', () => {
       expect(getBooks(1)).rejects.toEqual(error)
     })
   })
+
+  describe('getBookText', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn()
+      });
+  
+      it('should be called with the correct url', () => {
+        const userId = 1
+        const bookId = 1
+        const expected = `https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`
+  
+        getBookText(userId, bookId)
+        expect(window.fetch).toHaveBeenCalledWith(expected)
+      });
+
+    })
