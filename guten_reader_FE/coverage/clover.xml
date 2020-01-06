@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1578349396517" clover="3.2.0">
-  <project timestamp="1578349396517" name="All files">
-    <metrics statements="90" coveredstatements="24" conditionals="16" coveredconditionals="2" methods="34" coveredmethods="2" elements="140" coveredelements="28" complexity="0" loc="90" ncloc="90" packages="9" files="10" classes="10"/>
+<coverage generated="1578350136691" clover="3.2.0">
+  <project timestamp="1578350136692" name="All files">
+    <metrics statements="90" coveredstatements="26" conditionals="16" coveredconditionals="2" methods="34" coveredmethods="4" elements="140" coveredelements="32" complexity="0" loc="90" ncloc="90" packages="10" files="10" classes="10"/>
     <package name="guten_reader_FE">
-      <metrics statements="12" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="App.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/App.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="9" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
-      </file>
-      <file name="apiCalls.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/apiCalls.js">
-        <metrics statements="10" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
       </file>
     </package>
     <package name="guten_reader_FE.assets">
@@ -28,6 +15,22 @@
       <file name="volume-on.png" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/assets/volume-on.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="guten_reader_FE.src">
+      <metrics statements="10" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="apiCalls.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/src/apiCalls.js">
+        <metrics statements="10" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
       </file>
     </package>
     <package name="guten_reader_FE.src.Components.Library">
@@ -65,12 +68,12 @@
       </file>
     </package>
     <package name="guten_reader_FE.src.Components.ListSearch">
-      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="ListSearch.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/src/Components/ListSearch/ListSearch.js">
-        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
       </file>
     </package>
     <package name="guten_reader_FE.src.Components.MenuLibrary">
