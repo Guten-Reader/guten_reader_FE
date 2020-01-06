@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Button } from 'react-native';
-import '../../assets/volume-on.png'
+import '../../../assets/volume-on.png'
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, withNavigation } from 'react-navigation';
 
