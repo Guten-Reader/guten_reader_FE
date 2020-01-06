@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1578350136691" clover="3.2.0">
-  <project timestamp="1578350136692" name="All files">
-    <metrics statements="90" coveredstatements="26" conditionals="16" coveredconditionals="2" methods="34" coveredmethods="4" elements="140" coveredelements="32" complexity="0" loc="90" ncloc="90" packages="10" files="10" classes="10"/>
+<coverage generated="1578350801538" clover="3.2.0">
+  <project timestamp="1578350801539" name="All files">
+    <metrics statements="90" coveredstatements="29" conditionals="16" coveredconditionals="2" methods="34" coveredmethods="4" elements="140" coveredelements="35" complexity="0" loc="90" ncloc="90" packages="10" files="10" classes="10"/>
     <package name="guten_reader_FE">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="App.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/App.js">
@@ -18,14 +18,14 @@
       </file>
     </package>
     <package name="guten_reader_FE.src">
-      <metrics statements="10" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="apiCalls.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/src/apiCalls.js">
-        <metrics statements="10" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
