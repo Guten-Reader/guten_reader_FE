@@ -82,11 +82,14 @@ class Search extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'black',
     flex: 1,
     flexDirection: 'column'
   },
   input: {
-    borderColor: 'black',
+    color: 'black',
+    backgroundColor: 'white',
+    borderColor: 'white',
     borderWidth: 1,
     marginTop: 10,
     marginBottom: 10,
@@ -95,14 +98,16 @@ const styles = StyleSheet.create({
     marginRight: 20
   },
   title: {
+    color: 'white',
    fontSize: 15,
    fontWeight: 'bold',
-   marginTop: 20,
+   marginTop: 40,
    marginRight: 20,
    marginLeft: 20,
    marginBottom: 10,
  },
  scrollview: {
+   color: 'white',
    margin: 20
  },
  toolbar: {
