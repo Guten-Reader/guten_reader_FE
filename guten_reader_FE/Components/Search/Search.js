@@ -60,7 +60,7 @@ class Search extends Component {
     }
     return (
       <View style={styles.container}>
-        <Text>Search by Title or Author:</Text>
+        <Text style={styles.title}>Search by Title or Author:</Text>
         <TextInput
           placeholder="Title or Author"
           style={styles.input}
@@ -68,11 +68,13 @@ class Search extends Component {
           value={this.state.searchQuery}
         />
         <Button title="SEARCH" onPress={this.searchBtn}/>
-        {this.state.searchResult ? null : <Text>{searchResult}</Text>}
-        <ScrollView>
+        {this.state.searchResult ? null : <Text style={styles.title}>{searchResult}</Text>}
+        <ScrollView style={styles.scrollview}>
           {renderSearchResults}
         </ScrollView>
-        <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
+        <View style={styles.toolbar}>
+          <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
+        </View>
       </View>
     )
   }
@@ -81,10 +83,39 @@ class Search extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column'
   },
   input: {
     borderColor: 'black',
-  }
+    borderWidth: 1,
+    marginTop: 10,
+    marginBottom: 10,
+    padding: 15,
+    marginLeft: 20,
+    marginRight: 20
+  },
+  title: {
+   fontSize: 15,
+   fontWeight: 'bold',
+   marginTop: 20,
+   marginRight: 20,
+   marginLeft: 20,
+   marginBottom: 10,
+ },
+ scrollview: {
+   margin: 20
+ },
+ toolbar: {
+   position: 'absolute',
+   bottom: 0,
+   right: 0,
+   left: 0,
+   backgroundColor: '#53E69B',
+   justifyContent: 'center',
+   height: 65,
+   width: '100%',
+   alignItems: 'center'
+ }
 })
 
 export default Search;

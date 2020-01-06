@@ -80,5 +80,4 @@ const styles = StyleSheet.create({
   }
 })
 
-// export default createAppContainer(AppNavigator);
 export default withNavigation(Library);
