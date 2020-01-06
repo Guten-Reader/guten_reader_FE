@@ -61,4 +61,16 @@ describe('getBooks', () => {
         expect(window.fetch).toHaveBeenCalledWith(expected)
       });
 
+      it('should return a string of text', async() => {
+        const mockResult = 'Im a texttt!'
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResult)
+        })
+      })
+      const result = await getBookText()
+      expect(result).toEqual(mockResult)
+      })
+      
     })
