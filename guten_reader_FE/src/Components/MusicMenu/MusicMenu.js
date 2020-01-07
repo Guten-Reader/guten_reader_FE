@@ -33,7 +33,7 @@ class MusicMenu extends Component {
       <View style={styles.toolbar}>
         {/* <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
         <TouchableOpacity onPress={this.toggleSound}>
-          {this.state.isMuted === true && <Image style={styles.volume} source={require('../../assets/volume-on.png')} />}
+          {this.state.isMuted === true && <Image style={styles.volume} source={require('../../../assets/volume-on.png')} />}
         </TouchableOpacity>
         <TouchableOpacity onPress={this.toggleSound}>
           {!this.state.isMuted && <Image style={styles.mute} source={require('../../assets/mute.png')} />}

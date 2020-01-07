@@ -29,6 +29,8 @@ class Library extends React.Component {
     this.setState({
       books: books.books
     });
+
+    console.log(books)
   }
 
   addBook(book) {

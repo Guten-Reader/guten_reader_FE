@@ -8,7 +8,7 @@ class Search extends Component {
     this.state = {
       searchQuery: '',
       foundBooks: [],
-      searchResult: false,
+      searchResult: true,
     }
   }
 
@@ -22,19 +22,15 @@ class Search extends Component {
       try {
         const data = await response.json();
         this.filterContent(data.results);
-        this.setState({ searchResult: true })
       }
       catch {
         this.setState({ foundBooks: [] })
       }
-    } else {
-      this.setState({ searchResult: false })
     }
   }
 
   filterContent = (data) => {
     if (data.length === 0) {
-      console.log("Data length is 0");
       this.setState({ searchResult: false })
       this.setState({ foundBooks: [] })
       return;
@@ -47,17 +43,19 @@ class Search extends Component {
         author: book.authors[0].name
       }
     });
+    this.setState({ searchResult: true })
     this.setState({ foundBooks: cleanedBooks })
   }
 
   render() {
     let renderSearchResults = [];
-    let searchResult = 'No results from search, try again'
+    let searchError = 'No results from search, try again';
     if (this.state.foundBooks.length > 0) {
       renderSearchResults = this.state.foundBooks.map(book => {
         return <ListSearch book={book}/>
       })
     }
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Search by Title or Author:</Text>
@@ -68,7 +66,8 @@ class Search extends Component {
           value={this.state.searchQuery}
         />
         <Button title="SEARCH" onPress={this.searchBtn}/>
-        {this.state.searchResult ? null : <Text style={styles.title}>{searchResult}</Text>}
+        {console.log("searchResult:::", this.state.searchResult)}
+        {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}
         </ScrollView>
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
     marginRight: 20
   },
   title: {
-    color: 'white',
+   color: 'white',
    fontSize: 15,
    fontWeight: 'bold',
    marginTop: 40,
