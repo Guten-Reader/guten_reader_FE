@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListSearch renders correctly with Jest renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginBottom": 20,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingBottom": 10,
+          "paddingTop": 10,
+          "width": 200,
+        }
+      }
+    >
+      This is a book
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 15,
+          "marginBottom": 10,
+          "width": 200,
+        }
+      }
+    >
+      I am the author
+    </Text>
+  </View>
+  <Button
+    title="DOWNLOAD"
+  />
+</View>
+`;

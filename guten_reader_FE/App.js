@@ -1,8 +1,8 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import Reader from './Components/Reader/Reader.js';
-import Library from './Components/Library/Library.js';
-import Search from './Components/Search/Search.js';
+import Reader from './src/Components/Reader/Reader.js';
+import Library from './src/Components/Library/Library.js';
+import Search from './src/Components/Search/Search.js';
 import 'react-native-gesture-handler';
 
 
