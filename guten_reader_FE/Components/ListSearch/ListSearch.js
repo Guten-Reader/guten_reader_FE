@@ -2,13 +2,18 @@ import React from 'react';
 import { StyleSheet, View, Button, Text } from 'react-native';
 
 const ListSearch = ({ book }) => {
+
+  const addBookToLibrary = () => {
+    console.log("CLICK!!")
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.text}>
         <Text style={styles.title}>{book.title}</Text>
         <Text style={styles.author}>{book.author}</Text>
       </View>
-      <Button title="DOWNLOAD" style={styles.button}/>
+      <Button title="DOWNLOAD" onPress={addBookToLibrary} style={styles.button}/>
     </View>
   )
 }

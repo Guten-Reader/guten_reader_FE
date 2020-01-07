@@ -34,7 +34,6 @@ class Search extends Component {
 
   filterContent = (data) => {
     if (data.length === 0) {
-      console.log("Data length is 0");
       this.setState({ searchResult: false })
       this.setState({ foundBooks: [] })
       return;
@@ -58,6 +57,7 @@ class Search extends Component {
         return <ListSearch book={book}/>
       })
     }
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Search by Title or Author:</Text>
