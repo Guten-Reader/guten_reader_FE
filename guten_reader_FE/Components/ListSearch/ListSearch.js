@@ -3,8 +3,14 @@ import { StyleSheet, View, Button, Text } from 'react-native';
 
 const ListSearch = ({ book }) => {
 
-  const addBookToLibrary = () => {
-    console.log("CLICK!!")
+  const addBookToLibrary = async () => {
+    //guten_id, author, title
+    let newBook = {
+      guten_id: book.id,
+      title: book.title,
+      author: book.author
+    }
+    console.log("New BOOK! ", newBook)
   }
 
   return (
