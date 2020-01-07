@@ -46,6 +46,26 @@ export const getRecommendation = async(token) => {
   }
 }
 
+export const postSongToPlayer = async(uri, token) => {
+  let uriString = {
+    uri: uri
+  }
+  let options = {
+    method: 'POST',
+    body: JSON.stringify(uriString),
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  }
+  const response = await fetch('https://api.spotify.com/v1/me/player/play', options)
+  try {
+    return response.json()
+  } catch {
+    throw Error('There was an error playing this song')
+  }
+} 
+
 
 
 
