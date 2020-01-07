@@ -25,10 +25,10 @@ export const getToken = async() => {
   }
 }
 
-export const getRecommendation = async() => {
+export const getRecommendation = async(token) => {
   let recommendation = {
     text: "This is a very happy and positive statement.", 
-    access_token: "BQCUhf-kwMIv9TrDe9boSzrRr-Z6xmuPLoqTAgEyJDJD6G4HIMlQHgRX6BWllCfIxOpK2kQQCiHDsqa3svALu0jPyuAnw6-dn1tjkpB1SSAGL6ma3Q1ZIegcIfKS1v4ag-Gb8uUKc9ch5tt20vazj_PXmK0", 
+    access_token: token, 
     user_id: 1
   }
   let options = {
@@ -38,16 +38,15 @@ export const getRecommendation = async() => {
       'Content-Type': 'application/json'
     }
   }
-  const response = await fetch(`https://micro-guten.herokuapp.com/api/v1/recommendation`, options)
+  const response = await fetch('https://micro-guten.herokuapp.com/api/v1/recommendation', options)
   try {
-    // console.log('response for get recommendation-->', response)
-    return repsonse.json()
+    return response.json()
   } catch {
     throw Error('There was an error getting a recommendation')
   }
 }
 
-// getRecommendation()
+
 
 
 

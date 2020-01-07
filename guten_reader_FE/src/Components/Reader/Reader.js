@@ -4,7 +4,7 @@ import { createAppContainer, withNavigation } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import {getToken} from '../../apiCalls'
+import { getToken, getRecommendation } from '../../apiCalls'
 
 class Reader extends React.Component {
 
@@ -13,19 +13,21 @@ class Reader extends React.Component {
     this.state = {
       currentPage: 0,
       // currentText: bookText[this.state.currentPage]
+      currentToken: ''
     }
   }
 
   async componentDidMount() {
-    console.log('in it')
     const token = await getToken()
-    console.log(token)
+    this.setState({ currentToken: token.access_token })
   }
 
-  onSwipeLeft(gestureState) {
+  async onSwipeLeft(gestureState) {
     this.setState(prevState => {
        return {currentPage: prevState.currentPage + 1}
     });
+    const recommendation = await getRecommendation(this.state.currentToken)
+    console.log('recommendation in component did mount', recommendation)
   }
 
   onSwipeRight(gestureState) {
