@@ -7,6 +7,7 @@ import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
 import {getBooks, getBookText} from '../../apiCalls';
 import { withNavigation } from 'react-navigation';
+// import console = require('console');
 
 class Library extends React.Component {
 
@@ -53,12 +54,16 @@ class Library extends React.Component {
     this.props.navigation.navigate('Reader', {bookText: bookText.data.book})
   }
 
+  async handleDelete(userId, bookId) {
+    console.log("Delete")
+  }
+
   render() {
     this.refreshLibrary();
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} />
+        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         <MenuLibrary />
       </View>
     );
