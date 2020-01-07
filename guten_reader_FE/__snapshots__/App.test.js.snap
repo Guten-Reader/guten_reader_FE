@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly with Jest renders correctly 1`] = `
+<ContextProvider
+  value="light"
+>
+  <ContextProvider
+    value={
+      Object {
+        "_childrenNavigation": Object {},
+        "actions": Object {
+          "dismiss": [Function],
+          "pop": [Function],
+          "popToTop": [Function],
+          "push": [Function],
+          "replace": [Function],
+          "reset": [Function],
+        },
+        "addListener": [Function],
+        "dangerouslyGetParent": [Function],
+        "dismiss": [Function],
+        "dispatch": [Function],
+        "getChildNavigation": [Function],
+        "getScreenProps": [Function],
+        "goBack": [Function],
+        "isFirstRouteInParent": [Function],
+        "isFocused": [Function],
+        "navigate": [Function],
+        "pop": [Function],
+        "popToTop": [Function],
+        "push": [Function],
+        "replace": [Function],
+        "reset": [Function],
+        "router": Object {
+          "childRouters": Object {
+            "Library": null,
+            "Reader": null,
+            "Search": null,
+          },
+          "getActionCreators": [Function],
+          "getActionForPathAndParams": [Function],
+          "getComponentForRouteName": [Function],
+          "getComponentForState": [Function],
+          "getPathAndParamsForState": [Function],
+          "getScreenOptions": [Function],
+          "getStateForAction": [Function],
+        },
+        "setParams": [Function],
+        "state": Object {
+          "index": 0,
+          "isTransitioning": false,
+          "key": "StackRouterRoot",
+          "routes": Array [
+            Object {
+              "key": "id-1578353646373-0",
+              "routeName": "Library",
+            },
+          ],
+        },
+      }
+    }
+  >
+    <KeyboardAwareNavigator
+      navigation={
+        Object {
+          "_childrenNavigation": Object {},
+          "actions": Object {
+            "dismiss": [Function],
+            "pop": [Function],
+            "popToTop": [Function],
+            "push": [Function],
+            "replace": [Function],
+            "reset": [Function],
+          },
+          "addListener": [Function],
+          "dangerouslyGetParent": [Function],
+          "dismiss": [Function],
+          "dispatch": [Function],
+          "getChildNavigation": [Function],
+          "getScreenProps": [Function],
+          "goBack": [Function],
+          "isFirstRouteInParent": [Function],
+          "isFocused": [Function],
+          "navigate": [Function],
+          "pop": [Function],
+          "popToTop": [Function],
+          "push": [Function],
+          "replace": [Function],
+          "reset": [Function],
+          "router": Object {
+            "childRouters": Object {
+              "Library": null,
+              "Reader": null,
+              "Search": null,
+            },
+            "getActionCreators": [Function],
+            "getActionForPathAndParams": [Function],
+            "getComponentForRouteName": [Function],
+            "getComponentForState": [Function],
+            "getPathAndParamsForState": [Function],
+            "getScreenOptions": [Function],
+            "getStateForAction": [Function],
+          },
+          "setParams": [Function],
+          "state": Object {
+            "index": 0,
+            "isTransitioning": false,
+            "key": "StackRouterRoot",
+            "routes": Array [
+              Object {
+                "key": "id-1578353646373-0",
+                "routeName": "Library",
+              },
+            ],
+          },
+        }
+      }
+      theme="light"
+    />
+  </ContextProvider>
+</ContextProvider>
+`;
