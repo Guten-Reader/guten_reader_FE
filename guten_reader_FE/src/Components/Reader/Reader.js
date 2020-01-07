@@ -4,27 +4,41 @@ import { createAppContainer, withNavigation } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import { getToken, getRecommendation, postSongToPlayer } from '../../apiCalls'
 
 class Reader extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      currentPage: 0
+      currentPage: 0,
+      // currentText: bookText[this.state.currentPage]
+      currentToken: ''
     }
   }
 
-  onSwipeLeft(gestureState) {
+  async componentDidMount() {
+    const token = await getToken()
+    this.setState({ currentToken: token.access_token })
+  }
+
+  async onSwipeLeft(gestureState) {
     this.setState(prevState => {
        return {currentPage: prevState.currentPage + 1}
     });
+    const recommendation = await getRecommendation(this.state.currentToken)
+    const song = await postSongToPlayer(recommendation.track_uri, this.state.currentToken)
+    console.log('song?--->', song)
   }
 
   onSwipeRight(gestureState) {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
+
   }
+
+
 
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
