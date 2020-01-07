@@ -55,6 +55,7 @@ class Search extends Component {
         return <ListSearch book={book}/>
       })
     }
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Search by Title or Author:</Text>
