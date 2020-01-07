@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Button, Text } from 'react-native';
 
-const ListSearch = ({ book }) => {
+class ListSearch extends Component {
+  constructor() {
+    super();
+  }
 
-  const addBookToLibrary = async () => {
+  addBookToLibrary = async () => {
+    hasBeenClicked = true;
     let newBook = {
-      guten_id: book.id,
-      title: book.title,
-      author: book.author
+      guten_id: this.props.book.id,
+      title: this.props.book.title,
+      author: this.props.book.author
     };
     let options = {
       method: 'POST',
@@ -23,15 +27,17 @@ const ListSearch = ({ book }) => {
     console.log("response data ::", data)
   }
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.text}>
-        <Text style={styles.title}>{book.title}</Text>
-        <Text style={styles.author}>{book.author}</Text>
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.text}>
+          <Text style={styles.title}>{this.props.book.title}</Text>
+          <Text style={styles.author}>{this.props.book.author}</Text>
+        </View>
+        <Button title="DOWNLOAD" onPress={this.addBookToLibrary} style={styles.button}/>
       </View>
-      <Button title="DOWNLOAD" onPress={addBookToLibrary} style={styles.button}/>
-    </View>
-  )
+    )
+  }
 }
 
 const styles = StyleSheet.create({
