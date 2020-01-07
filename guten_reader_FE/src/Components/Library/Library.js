@@ -21,14 +21,16 @@ class Library extends React.Component {
 
   async componentDidMount() {
     Font.loadAsync({
-      'Roboto': require('../../assets/fonts/Roboto.ttf'),
+      'Roboto': require('../../../assets/fonts/Roboto.ttf'),
     });
     this.addBookMsg();
 
-    const books = await getBooks(4);
+    const books = await getBooks(1);
     this.setState({
       books: books.books
     });
+
+    console.log(books)
   }
 
   addBook(book) {
