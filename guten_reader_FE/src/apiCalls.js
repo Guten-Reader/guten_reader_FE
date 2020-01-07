@@ -48,10 +48,10 @@ export const getRecommendation = async(token) => {
 
 export const postSongToPlayer = async(uri, token) => {
   let uriString = {
-    uri: uri
+    uris: [uri]
   }
   let options = {
-    method: 'POST',
+    method: 'PUT',
     body: JSON.stringify(uriString),
     headers: {
       'Authorization': `Bearer ${token}`,

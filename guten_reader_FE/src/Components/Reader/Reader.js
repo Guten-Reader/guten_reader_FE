@@ -4,7 +4,7 @@ import { createAppContainer, withNavigation } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import { getToken, getRecommendation } from '../../apiCalls'
+import { getToken, getRecommendation, postSongToPlayer } from '../../apiCalls'
 
 class Reader extends React.Component {
 
@@ -27,7 +27,8 @@ class Reader extends React.Component {
        return {currentPage: prevState.currentPage + 1}
     });
     const recommendation = await getRecommendation(this.state.currentToken)
-    console.log('recommendation in component did mount', recommendation)
+    const song = await postSongToPlayer(recommendation.track_uri, this.state.currentToken)
+    console.log('song?--->', song)
   }
 
   onSwipeRight(gestureState) {
