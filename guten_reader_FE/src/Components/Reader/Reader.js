@@ -10,7 +10,8 @@ class Reader extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 0
+      currentPage: 0,
+      currentText: bookText[this.state.currentPage]
     }
   }
 
@@ -24,7 +25,10 @@ class Reader extends React.Component {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
+
   }
+
+
 
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')

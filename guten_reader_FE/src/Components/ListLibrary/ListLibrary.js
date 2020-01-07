@@ -11,6 +11,7 @@ function ListLibrary(props) {
   }
 
   function displayBooks() {
+    console.log(props)
     return props.books.map((book) => {
       return (
         <View key={book.id} style={styles.listCont}>

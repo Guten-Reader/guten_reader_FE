@@ -21,7 +21,7 @@ class Library extends React.Component {
 
   async componentDidMount() {
     Font.loadAsync({
-      'Roboto': require('../../assets/fonts/Roboto.ttf'),
+      'Roboto': require('../../../assets/fonts/Roboto.ttf'),
     });
     this.addBookMsg();
 
