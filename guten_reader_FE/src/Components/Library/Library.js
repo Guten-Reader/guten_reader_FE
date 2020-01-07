@@ -24,13 +24,14 @@ class Library extends React.Component {
       'Roboto': require('../../../assets/fonts/Roboto.ttf'),
     });
     this.addBookMsg();
+    this.refreshLibrary();
+  }
 
+  async refreshLibrary() {
     const books = await getBooks(1);
     this.setState({
       books: books.books
     });
-
-    console.log(books)
   }
 
   addBook(book) {
@@ -53,6 +54,7 @@ class Library extends React.Component {
   }
 
   render() {
+    this.refreshLibrary();
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>

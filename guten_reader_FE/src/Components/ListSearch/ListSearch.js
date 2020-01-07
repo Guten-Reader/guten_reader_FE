@@ -7,7 +7,6 @@ class ListSearch extends Component {
   }
 
   addBookToLibrary = async () => {
-    hasBeenClicked = true;
     let newBook = {
       guten_id: this.props.book.id,
       title: this.props.book.title,
@@ -21,8 +20,7 @@ class ListSearch extends Component {
       }
     };
     console.log("options:: ", options)
-
-    let response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/4/books`, options);
+    let response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books`, options);
     const data = await response.json();
     console.log("response data ::", data)
   }
