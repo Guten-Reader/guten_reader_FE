@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search renders correctly with Jest renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 40,
+      }
+    }
+  >
+    Search by Title or Author:
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Title or Author"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "white",
+        "borderWidth": 1,
+        "color": "black",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 10,
+        "padding": 15,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <Button
+    onPress={[Function]}
+    title="SEARCH"
+  />
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "marginTop": 40,
+      }
+    }
+  >
+    No results from search, try again
+  </Text>
+  <ScrollViewMock
+    style={
+      Object {
+        "color": "white",
+        "margin": 20,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#53E69B",
+        "bottom": 0,
+        "height": 65,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      onPress={[Function]}
+      title="BACK"
+    />
+  </View>
+</View>
+`;
