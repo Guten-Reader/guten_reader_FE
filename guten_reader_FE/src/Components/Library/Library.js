@@ -47,7 +47,7 @@ class Library extends React.Component {
 
   async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
-    this.props.navigation.navigate('Reader', {bookText: bookText.data.book})
+    this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId})
   }
 
   render() {
