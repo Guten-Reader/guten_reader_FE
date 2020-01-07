@@ -7,11 +7,10 @@ import { withNavigation } from 'react-navigation';
 function ListLibrary(props) {
 
   const handlePress = id => {
-    props.downloadBook(4, id)
+    props.downloadBook(1, id)
   }
 
   function displayBooks() {
-    console.log(props)
     return props.books.map((book) => {
       return (
         <View key={book.id} style={styles.listCont}>

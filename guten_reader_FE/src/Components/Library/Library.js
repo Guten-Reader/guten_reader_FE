@@ -25,7 +25,7 @@ class Library extends React.Component {
     });
     this.addBookMsg();
 
-    const books = await getBooks(4);
+    const books = await getBooks(1);
     this.setState({
       books: books.books
     });

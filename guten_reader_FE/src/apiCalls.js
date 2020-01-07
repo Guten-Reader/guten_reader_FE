@@ -16,6 +16,15 @@ export const getBookText = async(userId, bookId) => {
   }
 }
 
+export const getToken = async() => {
+  const response = await fetch('https://guten-server.herokuapp.com/api/v1/access_token/1')
+  try {
+    return response.json()
+  } catch {
+    throw Error('There was an error getting a token')
+  }
+}
+
 export const getRecommendation = async() => {
   let recommendation = {
     text: "This is a very happy and positive statement.", 
@@ -31,12 +40,14 @@ export const getRecommendation = async() => {
   }
   const response = await fetch(`https://micro-guten.herokuapp.com/api/v1/recommendation`, options)
   try {
-    console.log('response', response)
+    // console.log('response for get recommendation-->', response)
     return repsonse.json()
   } catch {
     throw Error('There was an error getting a recommendation')
   }
 }
 
-getRecommendation()
+// getRecommendation()
+
+
 
