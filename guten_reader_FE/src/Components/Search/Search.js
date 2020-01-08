@@ -17,13 +17,16 @@ class Search extends Component {
   }
 
   searchBtn = async () => {
+    console.log("search query", this.state.searchQuery)
     if (this.state.searchQuery) {
       const response = await fetch(`http://gutendex.com/books?search=${this.state.searchQuery}`)
       try {
+        console.log("Try block")
         const data = await response.json();
         this.filterContent(data.results);
       }
       catch {
+        console.log("catch block")
         this.setState({ foundBooks: [] })
       }
     }
@@ -52,7 +55,7 @@ class Search extends Component {
     let searchError = 'No results from search, try again';
     if (this.state.foundBooks.length > 0) {
       renderSearchResults = this.state.foundBooks.map(book => {
-        return <ListSearch book={book}/>
+        return <ListSearch book={book} key={Date.now()}/>
       })
     }
 
@@ -66,7 +69,6 @@ class Search extends Component {
           value={this.state.searchQuery}
         />
         <Button title="SEARCH" onPress={this.searchBtn}/>
-        {console.log("searchResult:::", this.state.searchResult)}
         {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}

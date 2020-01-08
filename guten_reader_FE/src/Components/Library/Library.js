@@ -5,9 +5,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
-import {getBooks, getBookText} from '../../apiCalls';
+import {getBooks, getBookText, deleteBook} from '../../apiCalls';
 import { withNavigation } from 'react-navigation';
-// import console = require('console');
 
 class Library extends React.Component {
 
@@ -55,7 +54,19 @@ class Library extends React.Component {
   }
 
   async handleDelete(userId, bookId) {
+    
     console.log("Delete")
+    console.log("bookId:: ",bookId)
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options)
+    const data = await response.json();
+    console.log("Delete Response:::", data)
+    await this.refreshLibrary();
   }
 
   render() {
