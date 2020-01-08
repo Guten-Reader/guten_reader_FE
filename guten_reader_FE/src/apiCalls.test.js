@@ -1,4 +1,4 @@
-import { getBooks, getBookText } from './apiCalls'
+import { getBooks, getBookText, getToken } from './apiCalls'
 
 describe('getBooks', () => {
   beforeEach(() => {
@@ -73,3 +73,15 @@ describe('getBooks', () => {
       expect(result).toEqual(mockResult)
       });
     });
+
+    describe('getToken', () => {
+      beforeEach(() => {
+        window.fetch = jest.fn()
+      });
+
+      it('should be called with the correct url', () => {
+        const expected = 'https://guten-server.herokuapp.com/api/v1/access_token/1'
+        getToken()
+        expect(window.fetch).toHaveBeenCalledWith(expected)
+      })
+    })

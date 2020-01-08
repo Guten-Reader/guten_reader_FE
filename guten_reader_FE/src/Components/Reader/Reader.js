@@ -22,27 +22,23 @@ class Reader extends React.Component {
     this.setState({ currentToken: token.access_token })
   }
 
-  async onSwipeLeft(gestureState) {
+  async onSwipeLeft() {
     this.setState(prevState => {
        return {currentPage: prevState.currentPage + 1}
     });
-    const recommendation = await getRecommendation(this.state.currentToken)
+    const recommendation = await getRecommendation(this.state.currentToken) 
     await postSongToPlayer(recommendation.track_uri, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
-    const newCurrentPage = await updateCurrentPage(bookId, this.state.currentPage)
-    console.log('new current page--->', newCurrentPage)
+    await updateCurrentPage(bookId, this.state.currentPage)
   }
 
-  async onSwipeRight(gestureState) {
+  async onSwipeRight() {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
-    const newCurrentPage = await updateCurrentPage(bookId, this.state.currentPage)
-    console.log('new current page--->', newCurrentPage)
+    await updateCurrentPage(bookId, this.state.currentPage)
   }
-
-
 
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
