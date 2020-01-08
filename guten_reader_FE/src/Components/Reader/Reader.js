@@ -15,7 +15,8 @@ class Reader extends React.Component {
       currentPage: 0,
       currentToken: '',
       currentMood: 'blank',
-      defaultFontSize : true
+      defaultFontSize : true,
+      defaultFontFamily: true,
     }
   }
 
@@ -29,7 +30,12 @@ class Reader extends React.Component {
     this.setState({
       defaultFontSize : false
     });
-  
+ }
+
+ changeToDyslexicFont() {
+   this.setState({
+     defaultFontFamily: false
+   })
  }
 
 
@@ -50,7 +56,6 @@ class Reader extends React.Component {
     });
     const currentText = this.props.navigation.getParam('bookText', 'ERROR')
     const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText) 
-    console.log('recommended tracks', recommendation)
     this.setState({ currentMood: recommendation.mood })
     await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
@@ -72,8 +77,11 @@ class Reader extends React.Component {
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView>
               <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
-              <Text style={{ fontSize: (this.state.defaultFontSize === true ? 20 : 40), fontFamily: 'OpenDyslexic2'}}>
-                {bookText[this.state.currentPage]}
+              <Button onPress={ this.changeToDyslexicFont.bind(this) } title="Click here for dyslexic font" />
+              <Text style={{ 
+                fontSize: (this.state.defaultFontSize === true ? 20 : 40),
+                fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2')}}>
+                {bookText[this.state.currentPage]}}
               </Text>
 
           </ScrollView>
@@ -97,7 +105,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   mockText: {
-    fontFamily: 'OpenDyslexic2',
     marginTop: 20,
     padding: 20
   }
