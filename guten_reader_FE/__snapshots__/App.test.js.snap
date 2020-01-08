@@ -52,7 +52,7 @@ exports[`App renders correctly with Jest renders correctly 1`] = `
           "key": "StackRouterRoot",
           "routes": Array [
             Object {
-              "key": "id-1578444272368-0",
+              "key": "id-1578444446219-0",
               "routeName": "Library",
             },
           ],
@@ -108,7 +108,7 @@ exports[`App renders correctly with Jest renders correctly 1`] = `
             "key": "StackRouterRoot",
             "routes": Array [
               Object {
-                "key": "id-1578444272368-0",
+                "key": "id-1578444446219-0",
                 "routeName": "Library",
               },
             ],
