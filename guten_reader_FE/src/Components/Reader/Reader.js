@@ -33,11 +33,13 @@ class Reader extends React.Component {
     console.log('new current page--->', newCurrentPage)
   }
 
-  onSwipeRight(gestureState) {
+  async onSwipeRight(gestureState) {
     this.setState({
       currentPage: this.state.currentPage - 1
     });
-
+    const bookId = this.props.navigation.getParam('bookId', 'ERROR')
+    const newCurrentPage = await updateCurrentPage(bookId, this.state.currentPage)
+    console.log('new current page--->', newCurrentPage)
   }
 
 
