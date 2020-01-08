@@ -15,7 +15,7 @@ class Reader extends React.Component {
       currentPage: 0,
       currentToken: '',
       currentMood: 'blank',
-      defaultFontSize : true,
+      defaultFontSize : 20,
       defaultFontFamily: true,
     }
   }
@@ -27,8 +27,9 @@ class Reader extends React.Component {
   }
 
   increaseFontSize() {
+    let newFontSize = this.state.defaultFontSize += 2
     this.setState({
-      defaultFontSize : false
+      defaultFontSize : newFontSize
     });
  }
 
@@ -42,7 +43,6 @@ class Reader extends React.Component {
        defaultFontFamily: true
      })
    }
-   
  }
 
 
@@ -84,9 +84,10 @@ class Reader extends React.Component {
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView>
               <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
+              <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to decrease font size" />
               <Button onPress={ this.changeToDyslexicFont.bind(this) } title="Click here for dyslexic font" />
               <Text style={{ 
-                fontSize: (this.state.defaultFontSize === true ? 20 : 40),
+                fontSize: (this.state.defaultFontSize),
                   fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2')}}>
                 {bookText[this.state.currentPage]}}
               </Text>
