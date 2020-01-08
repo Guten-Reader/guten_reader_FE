@@ -13,9 +13,12 @@ class Reader extends React.Component {
     this.state = {
       currentPage: 0,
       currentToken: '',
-      currentMood: 'Neutral'
+      currentMood: 'blank'
     }
   }
+
+  // Needs to add currentText to pass into apiCall getRecommendation to get accurate sentiment
+  // New recommendation endpoint is only returning 204 error on Positive
 
   async componentDidMount() {
     this.updateCurrentPage()
@@ -32,7 +35,9 @@ class Reader extends React.Component {
     this.setState(prevState => {
        return {currentPage: prevState.currentPage + 1}
     });
-    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood) 
+    const currentText = this.props.navigation.getParam('bookText', 'ERROR')
+    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText) 
+    console.log('recommended tracks', recommendation.recommended_tracks)
     await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)

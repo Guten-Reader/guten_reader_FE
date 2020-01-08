@@ -10,6 +10,8 @@ function ListLibrary(props) {
     props.downloadBook(1, id)
   }
 
+  // needs to find book with this id and return currentText
+
   function displayBooks() {
     return props.books.map((book) => {
       return (
