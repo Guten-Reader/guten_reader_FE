@@ -13,12 +13,18 @@ class Reader extends React.Component {
     this.state = {
       currentPage: 0,
       currentToken: '',
-      currentMood: 'blank'
+      currentMood: 'blank',
+      defaultFontSize : true
     }
   }
 
-  // Needs to add currentText to pass into apiCall getRecommendation to get accurate sentiment
-  // New recommendation endpoint is only returning 204 error on Positive
+  increaseFontSize() {
+    this.setState({
+      defaultFontSize : false
+    });
+  
+ }
+
 
   async componentDidMount() {
     this.updateCurrentPage()
@@ -58,9 +64,11 @@ class Reader extends React.Component {
       <View style={styles.container}>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView>
-              <Text style={styles.mockText}>
+              <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
+              <Text style={{ fontSize: (this.state.defaultFontSize === true ? 20 : 40)}}>
                 {bookText[this.state.currentPage]}
               </Text>
+
           </ScrollView>
         </GestureRecognizer>
         <MusicMenu />
@@ -81,7 +89,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   mockText: {
-    fontSize: 20,
     marginTop: 20,
     padding: 20
   }
