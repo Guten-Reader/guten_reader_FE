@@ -18,8 +18,14 @@ class Reader extends React.Component {
   }
 
   async componentDidMount() {
+    this.updateCurrentPage()
     const token = await getToken()
     this.setState({ currentToken: token.access_token })
+  }
+
+  updateCurrentPage() {
+    const currentPage = this.props.navigation.getParam('currentPage', 'ERROR')
+    this.setState({ currentPage: currentPage})
   }
 
   async onSwipeLeft() {

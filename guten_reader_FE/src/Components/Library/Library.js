@@ -47,7 +47,9 @@ class Library extends React.Component {
 
   async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
-    this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId})
+    const foundBook = this.state.books.find(book => book.id === bookId)
+    this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId, currentPage: foundBook.current_page})
+    
   }
 
   render() {

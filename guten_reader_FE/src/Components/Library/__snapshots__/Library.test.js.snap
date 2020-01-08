@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Library renders correctly with Jest renders correctly 1`] = `
+exports[`Library renders correctly 1`] = `
 <ContextConsumer>
   <Component />
 </ContextConsumer>
