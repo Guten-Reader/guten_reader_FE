@@ -21,12 +21,6 @@ class Reader extends React.Component {
     }
   }
 
-  componentDidMount() {
-    Font.loadAsync({
-      'OpenDyslexic2': require('../../../assets/fonts/OpenDyslexic-Regular.otf'),
-    });
-  }
-
   increaseFontSize() {
     let newFontSize = this.state.defaultFontSize += 2
     this.setState({

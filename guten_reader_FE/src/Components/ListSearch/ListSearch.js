@@ -8,7 +8,7 @@ const ListSearch = ({ book }) => {
         <Text style={styles.title}>{book.title}</Text>
         <Text style={styles.author}>{book.author}</Text>
       </View>
-      <Button title="DOWNLOAD" style={styles.button}/>
+      <Button title="CHECKOUT" style={styles.button}/>
     </View>
   )
 }

@@ -22,7 +22,7 @@ function ListLibrary(props) {
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>
             </View>
-            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ"></Button>
+            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ"/>
           </View>
         </View>
       )
