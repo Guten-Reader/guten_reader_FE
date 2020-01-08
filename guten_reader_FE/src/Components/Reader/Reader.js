@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { createAppContainer, withNavigation } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import * as Font from 'expo-font';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from '../../apiCalls'
@@ -16,6 +17,12 @@ class Reader extends React.Component {
       currentMood: 'blank',
       defaultFontSize : true
     }
+  }
+
+  componentDidMount() {
+    Font.loadAsync({
+      'OpenDyslexic2': require('../../../assets/fonts/OpenDyslexic-Regular.otf'),
+    });
   }
 
   increaseFontSize() {
@@ -65,7 +72,7 @@ class Reader extends React.Component {
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView>
               <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
-              <Text style={{ fontSize: (this.state.defaultFontSize === true ? 20 : 40)}}>
+              <Text style={{ fontSize: (this.state.defaultFontSize === true ? 20 : 40), fontFamily: 'OpenDyslexic2'}}>
                 {bookText[this.state.currentPage]}
               </Text>
 
@@ -85,10 +92,12 @@ const AppNavigator = createStackNavigator({
 
 const styles = StyleSheet.create({
   container: {
+    fontFamily: 'OpenDyslexic2',
     flex: 1,
     flexDirection: 'column'
   },
   mockText: {
+    fontFamily: 'OpenDyslexic2',
     marginTop: 20,
     padding: 20
   }
