@@ -27,9 +27,9 @@ export const getToken = async() => {
 
 export const getRecommendation = async(token, currentMood, currentText) => {
   let recommendation = {
-    current_mood: "currentMood",
+    current_mood: currentMood,
     text: "very positive nice wonderful",
-    access_token: "BQAf-P15DQCI9l9A061omYVbuehJ5xpybtOqJMbKW3RCDI1Xb-Pn5J1sVawf5DrijAxGOQeeJtsp0fxjg0Qt6B1AQ03GzuwXCWeYkIX_wtG3--cIhu-jO-ufCHnIdgazCHw6XBG0MiXeWenceqS6eRrnotcu79MFVuY"
+    access_token: token
   }
   let options = {
     method: 'POST',

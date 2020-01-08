@@ -37,7 +37,8 @@ class Reader extends React.Component {
     });
     const currentText = this.props.navigation.getParam('bookText', 'ERROR')
     const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText) 
-    console.log('recommended tracks', recommendation.recommended_tracks)
+    console.log('recommended tracks', recommendation)
+    this.setState({ currentMood: recommendation.mood })
     await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
