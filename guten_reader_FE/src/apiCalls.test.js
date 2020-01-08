@@ -72,6 +72,14 @@ describe('getBooks', () => {
       const result = await getBookText()
       expect(result).toEqual(mockResult)
       });
+
+      it('should return an error if the fetch is unsuccessful', async() => {
+        const error = 'Fetch failed'
+        window.fetch = jest.fn().mockImplementation(() => {
+          return Promise.reject(error);
+        })
+        expect(getBookText()).rejects.toEqual(error)
+      });
     });
 
     describe('getToken', () => {
