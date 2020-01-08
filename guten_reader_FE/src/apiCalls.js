@@ -25,8 +25,9 @@ export const getToken = async() => {
   }
 }
 
-export const getRecommendation = async(token) => {
+export const getRecommendation = async(token, currentMood) => {
   let recommendation = {
+    current_mood: currentMood,
     text: "This is a very happy and positive statement.", 
     access_token: token, 
     user_id: 1
@@ -40,6 +41,7 @@ export const getRecommendation = async(token) => {
   }
   const response = await fetch('https://micro-guten.herokuapp.com/api/v1/recommendation', options)
   try {
+    console.log(response)
     return response.json()
   } catch {
     throw Error('There was an error getting a recommendation')

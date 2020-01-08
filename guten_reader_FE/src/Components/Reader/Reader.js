@@ -12,8 +12,8 @@ class Reader extends React.Component {
     super();
     this.state = {
       currentPage: 0,
-      // currentText: bookText[this.state.currentPage]
-      currentToken: ''
+      currentToken: '',
+      currentMood: 'Neutral'
     }
   }
 
@@ -32,8 +32,8 @@ class Reader extends React.Component {
     this.setState(prevState => {
        return {currentPage: prevState.currentPage + 1}
     });
-    const recommendation = await getRecommendation(this.state.currentToken) 
-    await postSongToPlayer(recommendation.track_uri, this.state.currentToken)
+    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood) 
+    await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
   }

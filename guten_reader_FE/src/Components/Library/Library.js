@@ -11,7 +11,7 @@ import { withNavigation } from 'react-navigation';
 class Library extends React.Component {
 
   constructor(props) {
-    super();
+    super(props);
     this.downloadBook = this.downloadBook.bind(this)
     this.state = {
       books: [],
