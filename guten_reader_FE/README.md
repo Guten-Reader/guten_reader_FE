@@ -1,6 +1,6 @@
 # Guten Reader
 
-Living in a small, paper-thin walled apartment in Denver, Fenton was reading a book late one night. As the book's plot line is intensifying, so is Fenton's heart rate! Then in the apartment door, the family begins watching an intense movie.
+Living in a small, paper-thin walled apartment in Denver, Fenton was reading a book late one night. As the story is intensifying, so is Fenton's heart rate, and also the plot in neighbor's TV show in the apartment next door. Fenton turns the page to read something astonishing as the show reaches its peak plot and music volume!!
 
 Guten Reader is an eReader that performs sentiment analysis of the text on the page and plays a song as you read that matches the mood of text!
 
@@ -13,6 +13,8 @@ Guten Reader is an eReader that performs sentiment analysis of the text on the p
 - Utilize different network requests like GET, POST, DELETE & PATCH.
 
 - Learn how to team up and work efficiently with another team and their specialties.
+
+- Follow a professional GitHub workflow.
 
 ### Screenshots
 
