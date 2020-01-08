@@ -17,18 +17,10 @@ class Search extends Component {
   }
 
   searchBtn = async () => {
-    console.log("search query", this.state.searchQuery)
     if (this.state.searchQuery) {
       const response = await fetch(`http://gutendex.com/books?search=${this.state.searchQuery}`)
-      try {
-        console.log("Try block")
-        const data = await response.json();
-        this.filterContent(data.results);
-      }
-      catch {
-        console.log("catch block")
-        this.setState({ foundBooks: [] })
-      }
+      const data = await response.json();
+      this.filterContent(data.results);
     }
   }
 
@@ -38,24 +30,32 @@ class Search extends Component {
       this.setState({ foundBooks: [] })
       return;
     }
-    let filterByMediaTypes = data.filter(book => book.media_type === 'Text')
-    let cleanedBooks = filterByMediaTypes.map(book => {
+    let filterByMediaType = data.filter(book => book.media_type === 'Text')
+    let cleanedBooks = this.mapCleanBooks(filterByMediaType)
+    this.setState({ searchResult: true })
+    this.setState({ foundBooks: cleanedBooks })
+  }
+
+  mapCleanBooks = (books) => {
+    return books.map(book => {
+      let author = "unknown author"
+      if (book.authors[0] !== undefined) {
+        author = book.authors[0].name
+      }
       return {
         id: book.id,
         title: book.title,
-        author: book.authors[0].name
+        author: author
       }
     });
-    this.setState({ searchResult: true })
-    this.setState({ foundBooks: cleanedBooks })
   }
 
   render() {
     let renderSearchResults = [];
     let searchError = 'No results from search, try again';
     if (this.state.foundBooks.length > 0) {
-      renderSearchResults = this.state.foundBooks.map(book => {
-        return <ListSearch book={book} key={Date.now()}/>
+      renderSearchResults = this.state.foundBooks.map((book, index) => {
+        return <ListSearch book={book} key={index}/>
       })
     }
 
