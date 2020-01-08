@@ -17,6 +17,7 @@ class Reader extends React.Component {
       currentMood: 'blank',
       defaultFontSize : 20,
       defaultFontFamily: true,
+      isOnDarkMode: false
     }
   }
 
@@ -33,7 +34,14 @@ class Reader extends React.Component {
     });
  }
 
- changeToDyslexicFont() {
+ decreaseFontSize() {
+   let newFontSize = this.state.defaultFontSize -=2
+   this.setState({
+     defaultFontSize: newFontSize
+   })
+ }
+
+  toggleDyslexicFont() {
    if(this.state.defaultFontFamily === true) {
     this.setState({
       defaultFontFamily: false
@@ -45,6 +53,17 @@ class Reader extends React.Component {
    }
  }
 
+ toggleDarkMode() {
+  if(this.state.isOnDarkMode === false) {
+    this.setState({
+      isOnDarkMode: true
+    })
+   } else {
+     this.setState({
+       isOnDarkMode: false
+     })
+   }
+ }
 
   async componentDidMount() {
     this.updateCurrentPage()
@@ -82,13 +101,16 @@ class Reader extends React.Component {
     return (
       <View style={styles.container}>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-          <ScrollView>
+          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white')}}>
               <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
-              <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to decrease font size" />
-              <Button onPress={ this.changeToDyslexicFont.bind(this) } title="Click here for dyslexic font" />
+              <Button onPress={ this.decreaseFontSize.bind(this) } title="Click here to decrease font size" />
+              <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Click here for dyslexic font" />
+              <Button onPress={ this.toggleDarkMode.bind(this) } title="Click here for dark mode" />
               <Text style={{ 
                 fontSize: (this.state.defaultFontSize),
-                  fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2')}}>
+                fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2'),
+                color: (this.state.isOnDarkMode === true ? 'white' : 'black')
+                }}>
                 {bookText[this.state.currentPage]}}
               </Text>
 
@@ -97,7 +119,7 @@ class Reader extends React.Component {
         <MusicMenu />
       </View>
     )}
-              }
+   }
 
 
 const AppNavigator = createStackNavigator({
