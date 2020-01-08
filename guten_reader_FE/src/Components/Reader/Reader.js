@@ -107,6 +107,8 @@ class Reader extends React.Component {
               <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Click here for dyslexic font" />
               <Button onPress={ this.toggleDarkMode.bind(this) } title="Click here for dark mode" />
               <Text style={{ 
+                marginTop: 20,
+                padding: 20,
                 fontSize: (this.state.defaultFontSize),
                 fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2'),
                 color: (this.state.isOnDarkMode === true ? 'white' : 'black')
@@ -133,10 +135,6 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenDyslexic2',
     flex: 1,
     flexDirection: 'column'
-  },
-  mockText: {
-    marginTop: 20,
-    padding: 20
   }
 });
 
