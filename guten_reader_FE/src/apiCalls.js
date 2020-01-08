@@ -66,6 +66,21 @@ export const postSongToPlayer = async(uri, token) => {
   }
 } 
 
+export const updateCurrentPage = async(bookId, currentPage) => {
+  let options = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books/${bookId}?current_page=${currentPage}`, options)
+  try {
+    return response.json()
+  } catch {
+    throw Error('There was an error updating the current page')
+  }
+}
+
 
 
 

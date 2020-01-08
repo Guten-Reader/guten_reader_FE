@@ -1,4 +1,4 @@
-import { getBooks, getBookText } from './apiCalls'
+import { getBooks, getBookText, getToken } from './apiCalls'
 
 describe('getBooks', () => {
   beforeEach(() => {
@@ -72,4 +72,44 @@ describe('getBooks', () => {
       const result = await getBookText()
       expect(result).toEqual(mockResult)
       });
+
+      it('should return an error if the fetch is unsuccessful', async() => {
+        const error = 'Fetch failed'
+        window.fetch = jest.fn().mockImplementation(() => {
+          return Promise.reject(error);
+        })
+        expect(getBookText()).rejects.toEqual(error)
+      });
     });
+
+    describe('getToken', () => {
+      beforeEach(() => {
+        window.fetch = jest.fn()
+      });
+
+      it('should be called with the correct url', () => {
+        const expected = 'https://guten-server.herokuapp.com/api/v1/access_token/1'
+        getToken()
+        expect(window.fetch).toHaveBeenCalledWith(expected)
+      })
+
+      it('should return a string of a token', async() => {
+        const mockResult = 'Im a token'
+        window.fetch = jest.fn().mockImplementation(() => {
+          return Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve(mockResult)
+          })
+        })
+        const result = await getToken()
+        expect(result).toEqual(mockResult)
+      })
+
+      it('should return an error if the fetch is unsuccessful', async() => {
+        const error = 'Fetch failed'
+        window.fetch = jest.fn().mockImplementation(() => {
+          return Promise.reject(error);
+        })
+        expect(getToken()).rejects.toEqual(error)
+      });
+    })
