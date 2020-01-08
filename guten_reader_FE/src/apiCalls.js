@@ -50,7 +50,7 @@ export const getRecommendation = async(token, currentMood, currentText) => {
 
 export const postSongToPlayer = async(uri, token) => {
   let uriString = {
-    uris: [uri]
+    uris: uri
   }
   let options = {
     method: 'PUT',
