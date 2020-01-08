@@ -33,9 +33,16 @@ class Reader extends React.Component {
  }
 
  changeToDyslexicFont() {
-   this.setState({
-     defaultFontFamily: false
-   })
+   if(this.state.defaultFontFamily === true) {
+    this.setState({
+      defaultFontFamily: false
+    })
+   } else {
+     this.setState({
+       defaultFontFamily: true
+     })
+   }
+   
  }
 
 
@@ -80,7 +87,7 @@ class Reader extends React.Component {
               <Button onPress={ this.changeToDyslexicFont.bind(this) } title="Click here for dyslexic font" />
               <Text style={{ 
                 fontSize: (this.state.defaultFontSize === true ? 20 : 40),
-                fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2')}}>
+                  fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2')}}>
                 {bookText[this.state.currentPage]}}
               </Text>
 
@@ -88,9 +95,9 @@ class Reader extends React.Component {
         </GestureRecognizer>
         <MusicMenu />
       </View>
-    );
-  }
-}
+    )}
+              }
+
 
 const AppNavigator = createStackNavigator({
   Reader: {
