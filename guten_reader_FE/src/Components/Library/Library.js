@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
-import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
@@ -51,20 +50,12 @@ class Library extends React.Component {
 
   async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
-    
     const foundBook = this.state.books.find(book => book.id === bookId)
     this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId, currentPage: foundBook.current_page})
-    
   }
 
-  async handleDelete(userId, bookId) {
-    const options = {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options);
+  handleDelete(userId, bookId) {
+    deleteBook(userId, bookId)
   }
 
   render() {
@@ -72,6 +63,7 @@ class Library extends React.Component {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
+        <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
         <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         <MenuLibrary />
       </View>
@@ -93,6 +85,7 @@ const styles = StyleSheet.create({
   title: {
    fontSize: 30,
    fontWeight: 'bold',
+   marginLeft: 20,
    margin: 15,
    marginTop: 30
   }

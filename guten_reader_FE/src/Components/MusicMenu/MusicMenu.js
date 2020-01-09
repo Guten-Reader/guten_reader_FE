@@ -4,19 +4,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, withNavigation } from 'react-navigation';
 
 class MusicMenu extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      paused: true
-    }
-  }
-
-  state = {isMuted: false}
-
-  toggleSound = () => {
-    this.state.isMuted ? this.setState({isMuted: false}) : this.setState({isMuted: true})
-  }
 
   render() {
     return(
