@@ -17,6 +17,8 @@ Guten Reader is an eReader that performs sentiment analysis of the text on the p
 - Follow a professional GitHub workflow.
 
 ### Screenshots
+![guten-reader](https://user-images.githubusercontent.com/50784336/72040161-eea30180-3264-11ea-965d-b347b1b3fb7e.gif)
+
 
 Design Prototype
 
