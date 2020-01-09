@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { Button, View, Text, StyleSheet, ScrollView } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
@@ -64,7 +64,9 @@ class Library extends React.Component {
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
         <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
+        <ScrollView>
+          <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
+        </ScrollView>
         <MenuLibrary />
       </View>
     );
