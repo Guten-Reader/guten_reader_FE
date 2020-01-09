@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1578527915634" clover="3.2.0">
-  <project timestamp="1578527915634" name="All files">
-    <metrics statements="138" coveredstatements="40" conditionals="22" coveredconditionals="2" methods="45" coveredmethods="6" elements="205" coveredelements="48" complexity="0" loc="138" ncloc="138" packages="9" files="9" classes="9"/>
+<coverage generated="1578529748874" clover="3.2.0">
+  <project timestamp="1578529748874" name="All files">
+    <metrics statements="133" coveredstatements="40" conditionals="20" coveredconditionals="2" methods="43" coveredmethods="6" elements="196" coveredelements="48" complexity="0" loc="133" ncloc="133" packages="9" files="9" classes="9"/>
     <package name="guten_reader_FE">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="App.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/App.js">
@@ -80,11 +80,11 @@
         <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
       </file>
     </package>
     <package name="guten_reader_FE.src.Components.ListSearch">
@@ -107,16 +107,11 @@
       </file>
     </package>
     <package name="guten_reader_FE.src.Components.MusicMenu">
-      <metrics statements="7" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="MusicMenu.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/src/Components/MusicMenu/MusicMenu.js">
-        <metrics statements="7" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
       </file>
     </package>
     <package name="guten_reader_FE.src.Components.Reader">
@@ -161,11 +156,11 @@
       <metrics statements="31" coveredstatements="10" conditionals="8" coveredconditionals="2" methods="9" coveredmethods="2"/>
       <file name="Search.js" path="/Users/zoeketchamharvey/Turing/mod4/guten_reader_FE/guten_reader_FE/src/Components/Search/Search.js">
         <metrics statements="31" coveredstatements="10" conditionals="8" coveredconditionals="2" methods="9" coveredmethods="2"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
         <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
@@ -174,7 +169,7 @@
         <line num="25" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
         <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
@@ -184,12 +179,12 @@
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="57" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
         <line num="83" count="2" type="stmt"/>
       </file>

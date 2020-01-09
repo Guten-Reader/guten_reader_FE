@@ -18,57 +18,57 @@ class Reader extends React.Component {
       defaultFontSize : 20,
       defaultFontFamily: true,
       isOnDarkMode: false
-    }
-  }
+    };
+  };
+
+  async componentDidMount() {
+    this.updateCurrentPage()
+    const token = await getToken()
+    this.setState({ currentToken: token.access_token })
+  };
 
   increaseFontSize() {
     let newFontSize = this.state.defaultFontSize += 2
     this.setState({
       defaultFontSize : newFontSize
     });
- }
+ };
 
  decreaseFontSize() {
    let newFontSize = this.state.defaultFontSize -=2
    this.setState({
      defaultFontSize: newFontSize
-   })
- }
+   });
+ };
 
   toggleDyslexicFont() {
    if(this.state.defaultFontFamily === true) {
     this.setState({
       defaultFontFamily: false
-    })
+    });
    } else {
      this.setState({
        defaultFontFamily: true
-     })
-   }
- }
+     });
+   };
+ };
 
  toggleDarkMode() {
   if(this.state.isOnDarkMode === false) {
     this.setState({
       isOnDarkMode: true
-    })
+    });
    } else {
      this.setState({
        isOnDarkMode: false
-     })
-   }
- }
-
-  async componentDidMount() {
-    this.updateCurrentPage()
-    const token = await getToken()
-    this.setState({ currentToken: token.access_token })
-  }
+     });
+   };
+ };
 
   updateCurrentPage() {
     const currentPage = this.props.navigation.getParam('currentPage', 'ERROR')
     this.setState({ currentPage: currentPage})
-  }
+  };
 
   async onSwipeLeft() {
     this.setState(prevState => {
@@ -80,7 +80,7 @@ class Reader extends React.Component {
     await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
-  }
+  };
 
   async onSwipeRight() {
     this.setState({
@@ -88,7 +88,7 @@ class Reader extends React.Component {
     });
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
-  }
+  };
 
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
