@@ -103,9 +103,9 @@ class Reader extends React.Component {
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white')}}>
             <View style={styles.fontButtons}>
-                <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="A" titleStyle={{fontSize: 16}} />
-                <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="A" titleStyle={{fontSize: 32}}/>
-                <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Font" />
+                <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
+                <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
+                <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Mode" />
                 <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Dark Mode' : 'Light Mode'} />
               </View>
               <Text style={{
@@ -146,25 +146,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   }
 });
-
-// <TouchableOpacity onPress={this.toggleSound}>
-//   {this.state.isMuted === true && <Image style={styles.volume} source={require('../../../assets/volume-on.png')} />}
-// </TouchableOpacity>
-// <TouchableOpacity onPress={this.toggleSound}>
-//   {!this.state.isMuted && <Image style={styles.mute} source={require('../../../assets/mute.png')} />}
-// </TouchableOpacity>
-//
-// volume: {
-//   height: 50,
-//   width: 50,
-//   resizeMode: 'contain',
-//   marginLeft: 100
-// },
-// mute: {
-//   height: 50,
-//   width: 50,
-//   resizeMode: 'contain',
-//   marginLeft: 100
-// }
 
 export default withNavigation(Reader);
