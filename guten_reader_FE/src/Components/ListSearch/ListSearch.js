@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 20,
     justifyContent: 'space-between'
-  },
+  },git 
   title: {
     color: 'white',
     fontWeight: 'bold',
