@@ -16,6 +16,7 @@ function ListLibrary(props) {
         <View key={book.id} style={styles.listCont}>
           <Text style={styles.line}>______________________________________________________</Text>
           <View style={styles.list}>
+            <Button onPress={() => props.handleDelete(1, book.id)} title="X" />
             <View>
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>

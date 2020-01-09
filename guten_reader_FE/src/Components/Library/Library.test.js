@@ -25,5 +25,4 @@ describe('Library', () => {
     expect(instance.state).toEqual(mockState)
   });
 
-
 })

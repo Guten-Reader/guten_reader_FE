@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
-import {getBooks, getBookText} from '../../apiCalls';
+import {getBooks, getBookText, deleteBook} from '../../apiCalls';
 import { withNavigation } from 'react-navigation';
 
 class Library extends React.Component {
@@ -25,9 +25,12 @@ class Library extends React.Component {
       'OpenDyslexic2': require('../../../assets/fonts/OpenDyslexic-Regular.otf')
     });
     this.addBookMsg();
+    this.refreshLibrary();
+  }
 
+  async refreshLibrary() {
     const books = await getBooks(1);
-    this.setState({
+    await this.setState({
       books: books.books
     });
   }
@@ -53,12 +56,23 @@ class Library extends React.Component {
     
   }
 
+  async handleDelete(userId, bookId) {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options);
+  }
+
   render() {
+    this.refreshLibrary();
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
         <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} />
+        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         <MenuLibrary />
       </View>
     );
