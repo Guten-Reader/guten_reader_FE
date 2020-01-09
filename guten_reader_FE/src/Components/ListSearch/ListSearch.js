@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Button, Text } from 'react-native';
+import { addBook } from '../../apiCalls';
 
 class ListSearch extends Component {
   constructor() {
@@ -12,14 +13,7 @@ class ListSearch extends Component {
       title: this.props.book.title,
       author: this.props.book.author
     };
-    let options = {
-      method: 'POST',
-      body: JSON.stringify(newBook),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-    await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books`, options);
+    addBook(1, newBook);
   }
 
   render() {
