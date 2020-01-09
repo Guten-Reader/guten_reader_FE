@@ -15,7 +15,6 @@ describe('Library', () => {
   });
 
   it('addBook should update state with a new book', () => {
-
     expect(wrapper.state('books')).toEqual([{title: 'title1', author: 'author1'}]);
     wrapper.instance().addBook({title: 'new title', author: 'new author'});
     expect(wrapper.state('books')).toEqual([{title: 'title1', author: 'author1'}, {title: 'new title', author: 'new author'}]);

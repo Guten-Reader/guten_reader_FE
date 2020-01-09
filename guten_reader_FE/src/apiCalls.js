@@ -25,11 +25,11 @@ export const getToken = async() => {
   }
 }
 
-export const getRecommendation = async(token) => {
+export const getRecommendation = async(token, currentMood, currentText) => {
   let recommendation = {
-    text: "This is a very happy and positive statement.", 
-    access_token: token, 
-    user_id: 1
+    current_mood: currentMood,
+    text: "very positive nice wonderful",
+    access_token: token
   }
   let options = {
     method: 'POST',
@@ -40,7 +40,9 @@ export const getRecommendation = async(token) => {
   }
   const response = await fetch('https://micro-guten.herokuapp.com/api/v1/recommendation', options)
   try {
-    return response.json()
+    return response.json().then(function(data) {
+      return data
+    })
   } catch {
     throw Error('There was an error getting a recommendation')
   }
@@ -48,7 +50,7 @@ export const getRecommendation = async(token) => {
 
 export const postSongToPlayer = async(uri, token) => {
   let uriString = {
-    uris: [uri]
+    uris: uri
   }
   let options = {
     method: 'PUT',

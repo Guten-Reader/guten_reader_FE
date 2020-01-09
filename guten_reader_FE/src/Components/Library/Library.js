@@ -11,7 +11,7 @@ import { withNavigation } from 'react-navigation';
 class Library extends React.Component {
 
   constructor(props) {
-    super();
+    super(props);
     this.downloadBook = this.downloadBook.bind(this)
     this.state = {
       books: [],
@@ -50,6 +50,7 @@ class Library extends React.Component {
 
   async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
+    
     const foundBook = this.state.books.find(book => book.id === bookId)
     this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId, currentPage: foundBook.current_page})
     
