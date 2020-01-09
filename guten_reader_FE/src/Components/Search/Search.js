@@ -19,13 +19,8 @@ class Search extends Component {
   searchBtn = async () => {
     if (this.state.searchQuery) {
       const response = await fetch(`http://gutendex.com/books?search=${this.state.searchQuery}`)
-      try {
-        const data = await response.json();
-        this.filterContent(data.results);
-      }
-      catch {
-        this.setState({ foundBooks: [] })
-      }
+      const data = await response.json();
+      this.filterContent(data.results);
     }
   }
 
@@ -35,24 +30,32 @@ class Search extends Component {
       this.setState({ foundBooks: [] })
       return;
     }
-    let filterByMediaTypes = data.filter(book => book.media_type === 'Text')
-    let cleanedBooks = filterByMediaTypes.map(book => {
+    let filterByMediaType = data.filter(book => book.media_type === 'Text')
+    let cleanedBooks = this.mapCleanBooks(filterByMediaType)
+    this.setState({ searchResult: true })
+    this.setState({ foundBooks: cleanedBooks })
+  }
+
+  mapCleanBooks = (books) => {
+    return books.map(book => {
+      let author = "unknown author"
+      if (book.authors[0] !== undefined) {
+        author = book.authors[0].name
+      }
       return {
         id: book.id,
         title: book.title,
-        author: book.authors[0].name
+        author: author
       }
     });
-    this.setState({ searchResult: true })
-    this.setState({ foundBooks: cleanedBooks })
   }
 
   render() {
     let renderSearchResults = [];
     let searchError = 'No results from search, try again';
     if (this.state.foundBooks.length > 0) {
-      renderSearchResults = this.state.foundBooks.map(book => {
-        return <ListSearch book={book}/>
+      renderSearchResults = this.state.foundBooks.map((book, index) => {
+        return <ListSearch book={book} key={index}/>
       })
     }
 
@@ -66,7 +69,6 @@ class Search extends Component {
           value={this.state.searchQuery}
         />
         <Button title="SEARCH" onPress={this.searchBtn}/>
-        {console.log("searchResult:::", this.state.searchResult)}
         {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}
