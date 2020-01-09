@@ -28,7 +28,9 @@ Splash Page
 ![Splash Page](src/images/.png)
 
 
-<img width="905" alt="Screen Shot 2020-01-08 at 9 44 46 PM" src="https://user-images.githubusercontent.com/50784336/72038906-5440bf00-3260-11ea-82f3-d88c8f71e136.png">
+<img width="854" alt="Screen Shot 2020-01-08 at 9 51 35 PM" src="https://user-images.githubusercontent.com/50784336/72039160-39bb1580-3261-11ea-997c-d5f0b74d824d.png">
+
+<img width="578" alt="Screen Shot 2020-01-08 at 9 52 39 PM" src="https://user-images.githubusercontent.com/50784336/72039163-3b84d900-3261-11ea-8650-35270fb716c9.png">
 
 <img width="947" alt="Screen Shot 2020-01-08 at 9 31 44 PM" src="https://user-images.githubusercontent.com/50784336/72038922-61f64480-3260-11ea-97be-17cf3fae60a3.png">
 
