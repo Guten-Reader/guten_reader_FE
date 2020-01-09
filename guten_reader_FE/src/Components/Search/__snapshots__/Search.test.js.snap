@@ -50,21 +50,6 @@ exports[`Search renders correctly with Jest renders correctly 1`] = `
     onPress={[Function]}
     title="SEARCH"
   />
-  <Text
-    style={
-      Object {
-        "color": "white",
-        "fontSize": 15,
-        "fontWeight": "bold",
-        "marginBottom": 10,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 40,
-      }
-    }
-  >
-    No results from search, try again
-  </Text>
   <ScrollViewMock
     style={
       Object {

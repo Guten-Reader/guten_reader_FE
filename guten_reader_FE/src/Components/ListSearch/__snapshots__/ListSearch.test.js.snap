@@ -40,6 +40,13 @@ exports[`ListSearch renders correctly with Jest renders correctly 1`] = `
     </Text>
   </View>
   <Button
+    onPress={[Function]}
+    title="DOWNLOAD"
+  />
+  <Button
+    title="CHECKOUT"
+  />
+  <Button
     title="CHECKOUT"
   />
 </View>

@@ -51,10 +51,6 @@ class Library extends React.Component {
 
   async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
-<<<<<<< HEAD
-=======
-    
->>>>>>> development
     const foundBook = this.state.books.find(book => book.id === bookId)
     this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId, currentPage: foundBook.current_page})
     
@@ -75,12 +71,8 @@ class Library extends React.Component {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-<<<<<<< HEAD
         <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} />
-=======
         <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
->>>>>>> development
         <MenuLibrary />
       </View>
     );

@@ -31,9 +31,11 @@ class ListSearch extends Component {
         </View>
         <Button title="DOWNLOAD" onPress={this.addBookToLibrary} style={styles.button}/>
         <Button title="CHECKOUT" style={styles.button}/>
-      </View>
-    )
-  }}
+
+      <Button title="CHECKOUT" style={styles.button}/>
+    </View>
+  )
+}}
 
 const styles = StyleSheet.create({
   container: {
