@@ -40,7 +40,7 @@ exports[`ListSearch renders correctly with Jest renders correctly 1`] = `
     </Text>
   </View>
   <Button
-    title="DOWNLOAD"
+    title="CHECKOUT"
   />
 </View>
 `;
