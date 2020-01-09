@@ -1,19 +1,11 @@
 import React, {Component} from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Button } from 'react-native';
-// import '../../../assets/volume-on.png'
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, withNavigation } from 'react-navigation';
 
 class MusicMenu extends Component {
 
   render() {
-    // const track = ^^^ song URL in this.state.currentSong or whatever
-    // gets confusing:
-    //    const video = this.state.isChanging ? null : (
-      // <Video source={{uri: track.audioURL}}
-      // paused={this.state.paused} pauses playback
-      // maybe move sound/mute to two separate buttons, when one is pushed, isPaused is true, whatever
-    // )
     return(
       <View style={styles.toolbar}>
         <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
@@ -35,18 +27,6 @@ const styles = StyleSheet.create({
     height: 65,
     width: '100%',
     alignItems: 'center'
-  },
-  volume: {
-    height: 50,
-    width: 50,
-    resizeMode: 'contain',
-    marginLeft: 100
-  },
-  mute: {
-    height: 50,
-    width: 50,
-    resizeMode: 'contain',
-    marginLeft: 100
   }
 
 });
