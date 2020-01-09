@@ -95,7 +95,7 @@ class Reader extends React.Component {
     return (
       <View style={styles.container}>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white')}}>
+          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
             <View style={styles.fontButtons}>
                 <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
                 <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
