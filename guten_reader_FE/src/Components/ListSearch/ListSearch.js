@@ -5,6 +5,9 @@ import { addBook } from '../../apiCalls';
 class ListSearch extends Component {
   constructor() {
     super();
+    this.state = {
+      checkout: false,
+    }
   }
 
   addBookToLibrary = async () => {
@@ -14,6 +17,7 @@ class ListSearch extends Component {
       author: this.props.book.author
     };
     addBook(1, newBook);
+    await this.setState({checkout : true})
   }
 
   render() {
@@ -23,10 +27,7 @@ class ListSearch extends Component {
           <Text style={styles.title}>{this.props.book.title}</Text>
           <Text style={styles.author}>{this.props.book.author}</Text>
         </View>
-        <Button title="DOWNLOAD" onPress={this.addBookToLibrary} style={styles.button}/>
-        <Button title="CHECKOUT" style={styles.button}/>
-
-      <Button title="CHECKOUT" style={styles.button}/>
+        <Button title={this.state.checkout ? "ON SHELF" : "CHECKOUT"} onPress={this.addBookToLibrary} style={styles.button}/>
     </View>
   )
 }}
