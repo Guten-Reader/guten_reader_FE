@@ -22,12 +22,6 @@ class MusicMenu extends Component {
     return(
       <View style={styles.toolbar}>
         <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
-        <TouchableOpacity onPress={this.toggleSound}>
-          {this.state.isMuted === true && <Image style={styles.volume} source={require('../../../assets/volume-on.png')} />}
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.toggleSound}>
-          {!this.state.isMuted && <Image style={styles.mute} source={require('../../../assets/mute.png')} />}
-        </TouchableOpacity>
       </View>
     )
   }
@@ -46,18 +40,6 @@ const styles = StyleSheet.create({
     height: 65,
     width: '100%',
     alignItems: 'center'
-  },
-  volume: {
-    height: 50,
-    width: 50,
-    resizeMode: 'contain',
-    marginLeft: 100
-  },
-  mute: {
-    height: 50,
-    width: 50,
-    resizeMode: 'contain',
-    marginLeft: 100
   }
 
 });
