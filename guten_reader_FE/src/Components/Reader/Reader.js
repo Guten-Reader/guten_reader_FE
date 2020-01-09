@@ -81,7 +81,7 @@ class Reader extends React.Component {
        return {currentPage: prevState.currentPage + 1}
     });
     const currentText = this.props.navigation.getParam('bookText', 'ERROR')
-    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText) 
+    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText)
     this.setState({ currentMood: recommendation.mood })
     await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = this.props.navigation.getParam('bookId', 'ERROR')
@@ -102,11 +102,13 @@ class Reader extends React.Component {
       <View style={styles.container}>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white')}}>
-              <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
-              <Button onPress={ this.decreaseFontSize.bind(this) } title="Click here to decrease font size" />
-              <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Click here for dyslexic font" />
-              <Button onPress={ this.toggleDarkMode.bind(this) } title="Click here for dark mode" />
-              <Text style={{ 
+            <View style={styles.fontButtons}>
+                <Button onPress={ this.increaseFontSize.bind(this) } title="A" />
+                <Button onPress={ this.decreaseFontSize.bind(this) } title="A" />
+                <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Font" />
+                <Button onPress={ this.toggleDarkMode.bind(this) } title="Dark Mode" />
+              </View>
+              <Text style={{
                 marginTop: 20,
                 padding: 20,
                 fontSize: (this.state.defaultFontSize),
@@ -115,7 +117,6 @@ class Reader extends React.Component {
                 }}>
                 {bookText[this.state.currentPage]}}
               </Text>
-
           </ScrollView>
         </GestureRecognizer>
         <MusicMenu />
@@ -135,6 +136,14 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenDyslexic2',
     flex: 1,
     flexDirection: 'column'
+  },
+  fontButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingTop: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+    justifyContent: 'space-between'
   }
 });
 
