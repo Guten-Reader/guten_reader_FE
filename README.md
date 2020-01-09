@@ -27,6 +27,11 @@ Splash Page
 
 ![Splash Page](src/images/.png)
 
+
+<img width="905" alt="Screen Shot 2020-01-08 at 9 44 46 PM" src="https://user-images.githubusercontent.com/50784336/72038906-5440bf00-3260-11ea-82f3-d88c8f71e136.png">
+
+<img width="947" alt="Screen Shot 2020-01-08 at 9 31 44 PM" src="https://user-images.githubusercontent.com/50784336/72038922-61f64480-3260-11ea-97be-17cf3fae60a3.png">
+
 ### Tech
 
 - Front End created in React Native and tested with Jest/Enzyme.
