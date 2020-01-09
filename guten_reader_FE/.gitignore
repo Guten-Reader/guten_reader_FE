@@ -10,6 +10,7 @@ package-lock.json
 *.orig.*
 web-build/
 web-report/
+coverage
 
 # macOS
 .DS_Store
