@@ -42,7 +42,7 @@ The App
 
 - Front End created in React Native and tested with Jest/Enzyme.
 
-- Back End created in Rails and Sinatra and tested in rspec and ??.
+- Back End created in Rails and Sinatra and tested in rspec and unittest.
 
 ### Team
 
