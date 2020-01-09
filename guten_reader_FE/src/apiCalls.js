@@ -83,7 +83,18 @@ export const updateCurrentPage = async(bookId, currentPage) => {
   }
 }
 
-
-
-
-
+export const addBook = async(userId, book) => {
+  let options = {
+    method: 'POST',
+    body: JSON.stringify(book),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books`, options);
+  try {
+    return response.json()
+  } catch {
+    throw Error('There was an error adding a new book')
+  }
+}
