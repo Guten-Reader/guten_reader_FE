@@ -29,7 +29,7 @@ class Library extends React.Component {
 
   async refreshLibrary() {
     const books = await getBooks(1);
-    this.setState({
+    await this.setState({
       books: books.books
     });
   }
@@ -54,19 +54,13 @@ class Library extends React.Component {
   }
 
   async handleDelete(userId, bookId) {
-    
-    console.log("Delete")
-    console.log("bookId:: ",bookId)
     const options = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       }
     }
-    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options)
-    const data = await response.json();
-    console.log("Delete Response:::", data)
-    await this.refreshLibrary();
+    await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options);
   }
 
   render() {

@@ -19,10 +19,7 @@ class ListSearch extends Component {
         'Content-Type': 'application/json'
       }
     };
-    console.log("options:: ", options)
-    let response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books`, options);
-    const data = await response.json();
-    console.log("response data ::", data)
+    await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books`, options);
   }
 
   render() {
