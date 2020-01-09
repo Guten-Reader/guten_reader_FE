@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { createAppContainer, withNavigation } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import * as Font from 'expo-font';
 import MusicMenu from '../MusicMenu/MusicMenu';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from '../../apiCalls'
@@ -13,12 +14,56 @@ class Reader extends React.Component {
     this.state = {
       currentPage: 0,
       currentToken: '',
-      currentMood: 'blank'
+      currentMood: 'blank',
+      defaultFontSize : 20,
+      defaultFontFamily: true,
+      isOnDarkMode: false
     }
   }
 
-  // Needs to add currentText to pass into apiCall getRecommendation to get accurate sentiment
-  // New recommendation endpoint is only returning 204 error on Positive
+  componentDidMount() {
+    Font.loadAsync({
+      'OpenDyslexic2': require('../../../assets/fonts/OpenDyslexic-Regular.otf'),
+    });
+  }
+
+  increaseFontSize() {
+    let newFontSize = this.state.defaultFontSize += 2
+    this.setState({
+      defaultFontSize : newFontSize
+    });
+ }
+
+ decreaseFontSize() {
+   let newFontSize = this.state.defaultFontSize -=2
+   this.setState({
+     defaultFontSize: newFontSize
+   })
+ }
+
+  toggleDyslexicFont() {
+   if(this.state.defaultFontFamily === true) {
+    this.setState({
+      defaultFontFamily: false
+    })
+   } else {
+     this.setState({
+       defaultFontFamily: true
+     })
+   }
+ }
+
+ toggleDarkMode() {
+  if(this.state.isOnDarkMode === false) {
+    this.setState({
+      isOnDarkMode: true
+    })
+   } else {
+     this.setState({
+       isOnDarkMode: false
+     })
+   }
+ }
 
   async componentDidMount() {
     this.updateCurrentPage()
@@ -56,17 +101,28 @@ class Reader extends React.Component {
     return (
       <View style={styles.container}>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-          <ScrollView>
-              <Text style={styles.mockText}>
-                {bookText[this.state.currentPage]}
+          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white')}}>
+              <Button onPress={ this.increaseFontSize.bind(this) } title="Click here to increase font size" />
+              <Button onPress={ this.decreaseFontSize.bind(this) } title="Click here to decrease font size" />
+              <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Click here for dyslexic font" />
+              <Button onPress={ this.toggleDarkMode.bind(this) } title="Click here for dark mode" />
+              <Text style={{ 
+                marginTop: 20,
+                padding: 20,
+                fontSize: (this.state.defaultFontSize),
+                fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2'),
+                color: (this.state.isOnDarkMode === true ? 'white' : 'black')
+                }}>
+                {bookText[this.state.currentPage]}}
               </Text>
+
           </ScrollView>
         </GestureRecognizer>
         <MusicMenu />
       </View>
-    );
-  }
-}
+    )}
+   }
+
 
 const AppNavigator = createStackNavigator({
   Reader: {
@@ -76,13 +132,9 @@ const AppNavigator = createStackNavigator({
 
 const styles = StyleSheet.create({
   container: {
+    fontFamily: 'OpenDyslexic2',
     flex: 1,
     flexDirection: 'column'
-  },
-  mockText: {
-    fontSize: 20,
-    marginTop: 20,
-    padding: 20
   }
 });
 

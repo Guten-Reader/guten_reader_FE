@@ -22,6 +22,7 @@ class Library extends React.Component {
   async componentDidMount() {
     Font.loadAsync({
       'Roboto': require('../../../assets/fonts/Roboto.ttf'),
+      'OpenDyslexic2': require('../../../assets/fonts/OpenDyslexic-Regular.otf')
     });
     this.addBookMsg();
     this.refreshLibrary();
