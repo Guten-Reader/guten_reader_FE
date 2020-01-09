@@ -30,10 +30,12 @@ class ListSearch extends Component {
           <Text style={styles.author}>{this.props.book.author}</Text>
         </View>
         <Button title="DOWNLOAD" onPress={this.addBookToLibrary} style={styles.button}/>
-      </View>
-    )
-  }
-}
+        <Button title="CHECKOUT" style={styles.button}/>
+
+      <Button title="CHECKOUT" style={styles.button}/>
+    </View>
+  )
+}}
 
 const styles = StyleSheet.create({
   container: {
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 20,
     justifyContent: 'space-between'
-  },
+  }, 
   title: {
     color: 'white',
     fontWeight: 'bold',

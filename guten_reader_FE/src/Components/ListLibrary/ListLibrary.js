@@ -10,8 +10,6 @@ function ListLibrary(props) {
     props.downloadBook(1, id)
   }
 
-  // needs to find book with this id and return currentText
-
   function displayBooks() {
     return props.books.map((book) => {
       return (
@@ -23,7 +21,7 @@ function ListLibrary(props) {
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>
             </View>
-            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ" />
+            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ"/>
           </View>
         </View>
       )

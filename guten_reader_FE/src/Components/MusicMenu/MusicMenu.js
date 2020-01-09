@@ -5,21 +5,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, withNavigation } from 'react-navigation';
 
 class MusicMenu extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      paused: true
-    }
-  }
-
-  state = {isMuted: false}
-
-  toggleSound = () => {
-    this.state.isMuted ? this.setState({isMuted: false}) : this.setState({isMuted: true})
-  }
-
-  // Function to successfully fetch song, return in URL
 
   render() {
     // const track = ^^^ song URL in this.state.currentSong or whatever
@@ -32,12 +17,6 @@ class MusicMenu extends Component {
     return(
       <View style={styles.toolbar}>
         <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
-        <TouchableOpacity onPress={this.toggleSound}>
-          {this.state.isMuted === true && <Image style={styles.volume} source={require('../../../assets/volume-on.png')} />}
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.toggleSound}>
-          {!this.state.isMuted && <Image style={styles.mute} source={require('../../../assets/mute.png')} />}
-        </TouchableOpacity>
       </View>
     )
   }
