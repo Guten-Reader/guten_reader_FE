@@ -34,7 +34,6 @@ class Search extends Component {
 
   filterContent = (data) => {
     if (data.length === 0) {
-      console.log("Data length is 0");
       this.setState({ searchResult: false })
       this.setState({ foundBooks: [] })
       return;
