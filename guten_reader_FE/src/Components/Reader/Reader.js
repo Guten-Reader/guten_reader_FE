@@ -94,6 +94,7 @@ class Reader extends React.Component {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
       <View style={styles.container}>
+      <Text>{this.state.currentPage}</Text>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
             <View style={styles.fontButtons}>
