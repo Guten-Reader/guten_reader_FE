@@ -113,7 +113,6 @@ class Reader extends React.Component {
               </Text>
           </ScrollView>
         </GestureRecognizer>
-        <MusicMenu />
       </View>
     )}
    }
