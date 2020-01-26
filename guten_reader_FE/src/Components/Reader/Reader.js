@@ -65,24 +65,31 @@ class Reader extends React.Component {
    };
  };
 
-  updateCurrentPage() {
-    const currentPage = this.props.navigation.getParam('currentPage', 'ERROR')
-    this.setState({ currentPage: currentPage})
+  async updateCurrentPage() {
+    const currentPage = await this.props.navigation.getParam('currentPage', 'ERROR')
+    await this.setState({ currentPage: currentPage})
   };
 
   async onSwipeLeft() {
-    this.setState(prevState => {
-       return {currentPage: prevState.currentPage + 1}
-    });
-    const currentText = this.props.navigation.getParam('bookText', 'ERROR')
-    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText)
-    this.setState({ currentMood: recommendation.mood })
+    console.log('made it into onSwipeLeft')
+    console.log('currentMood', this.state.currentMood)
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    })
+    const currentText = await this.props.navigation.getParam('bookText', 'ERROR')
+    console.log('currentText', currentText[this.state.currentPage])
+    const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText[this.state.currentPage])
+    console.log('recommendation.mood', recommendation.mood)
+    if (recommendation.mood !== undefined) {
+      await this.setState({ currentMood: recommendation.mood }).catch(e => console.log('AHHHHHHHHH'))
+    }
     await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
-    const bookId = this.props.navigation.getParam('bookId', 'ERROR')
+    const bookId = await this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
   };
 
   async onSwipeRight() {
+    console.log('made it into onSwipeRight')
     this.setState({
       currentPage: this.state.currentPage - 1
     });
