@@ -14,7 +14,7 @@ class Reader extends React.Component {
     this.state = {
       currentPage: 0,
       currentToken: '',
-      currentMood: 'blank',
+      currentMood: 0,
       defaultFontSize : 20,
       defaultFontFamily: true,
       isOnDarkMode: false
@@ -72,24 +72,25 @@ class Reader extends React.Component {
 
   async onSwipeLeft() {
     console.log('made it into onSwipeLeft')
-    console.log('currentMood', this.state.currentMood)
     this.setState({
       currentPage: this.state.currentPage + 1
     })
     const currentText = await this.props.navigation.getParam('bookText', 'ERROR')
-    console.log('currentText', currentText[this.state.currentPage])
     const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText[this.state.currentPage])
     console.log('recommendation.mood', recommendation.mood)
     if (recommendation.mood !== undefined) {
-      await this.setState({ currentMood: recommendation.mood }).catch(e => console.log('AHHHHHHHHH'))
+      this.setState({ currentMood: recommendation.mood })
+      console.log('this.state.currentMood', this.state.currentMood)
+    } else {
+      this.setState({ currentMood: this.state.currentMood })
+      console.log('this.state.currentMood', this.state.currentMood)
     }
-    await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
+    // await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = await this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
   };
 
   async onSwipeRight() {
-    console.log('made it into onSwipeRight')
     this.setState({
       currentPage: this.state.currentPage - 1
     });

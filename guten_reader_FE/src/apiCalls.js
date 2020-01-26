@@ -45,6 +45,8 @@ export const getRecommendation = async(token, currentMood, currentText="very pos
       return response.json().then(function(data) {
         return data
       })
+    } else {
+      return {}
     }
   } catch {
     throw Error('There was an error getting a recommendation')
@@ -52,7 +54,6 @@ export const getRecommendation = async(token, currentMood, currentText="very pos
 }
 
 export const postSongToPlayer = async(uri, token) => {
-  console.log('made it in pSTP')
   let uriString = {
     uris: uri
   }
