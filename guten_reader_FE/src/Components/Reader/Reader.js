@@ -105,7 +105,7 @@ class Reader extends React.Component {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
       <View style={styles.container}>
-      <Text>{this.state.currentPage}</Text>
+      <Text style={styles.pageNum}>{this.state.currentPage}</Text>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
             <View style={styles.fontButtons}>
@@ -115,7 +115,6 @@ class Reader extends React.Component {
                 <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Dark Mode' : 'Light Mode'} />
               </View>
               <Text style={{
-                marginTop: 20,
                 padding: 20,
                 fontSize: (this.state.defaultFontSize),
                 fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2'),
@@ -145,10 +144,13 @@ const styles = StyleSheet.create({
   fontButtons: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 20,
     paddingRight: 20,
     paddingLeft: 20,
     justifyContent: 'space-between'
+  },
+  pageNum: {
+    paddingLeft: 20,
+    alignItems: 'flex-end'
   }
 });
 
