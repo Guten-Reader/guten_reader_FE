@@ -68,8 +68,10 @@ class Library extends React.Component {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
-        <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
+        <View style={styles.subHeading}>
+          <Text style={styles.subTitle}>My Bookshelf</Text>
+          <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
+        </View>
         <ScrollView>
           <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         </ScrollView>
@@ -89,12 +91,22 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
+  subHeading: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10
+  },
   title: {
    fontSize: 30,
    fontWeight: 'bold',
    marginLeft: 20,
-   margin: 15,
    marginTop: 30
+ },
+ subTitle: {
+   fontSize: 20
  },
  button: {
    fontSize: 20
