@@ -3,6 +3,16 @@ import { StyleSheet, View, Button, ScrollView, Text, TextInput } from 'react-nat
 import ListSearch from '../ListSearch/ListSearch'
 
 class Search extends Component {
+  static navigationOptions = {
+    title: 'Search',
+    headerStyle: {
+       backgroundColor: '#000000',
+     },
+    headerTitleStyle: {
+      color: '#FFFFFF',
+    }
+  }
+
   constructor() {
     super();
     this.state = {

@@ -8,6 +8,13 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from '../../apiCalls'
 
 class Reader extends React.Component {
+  static navigationOptions = {
+    title: 'Book Title',
+    headerRight: <Text>Page Number</Text>,
+    headerRightContainerStyle: {
+      paddingRight: 20
+    }
+  }
 
   constructor() {
     super();
