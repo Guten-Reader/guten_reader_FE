@@ -40,7 +40,6 @@ export const getRecommendation = async(token, currentMood, currentText="very pos
   }
   try {
     const response = await fetch('https://micro-guten.herokuapp.com/api/v1/recommendation', options)
-    console.log(response.status)
     if (response.status === 200) {
       return response.json().then(function(data) {
         return data
@@ -66,8 +65,14 @@ export const postSongToPlayer = async(uri, token) => {
     }
   }
   try {
-    const response = await fetch('https://api.spotify.com/v1/me/player/play', options).catch(error => console.log(error))
-    return response.json()
+    const response = await fetch('https://api.spotify.com/v1/me/player/play', options)
+    if (response.status === 200) {
+      return response.json().then(function(data) {
+        return data
+      })
+    } else {
+      return {}
+    }
   } catch {
     throw Error('There was an error playing this song')
   }
@@ -81,7 +86,7 @@ export const updateCurrentPage = async(bookId, currentPage) => {
     }
   }
   try {
-    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books/${bookId}?current_page=${currentPage}`, options).catch(error => console.log(error))
+    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books/${bookId}?current_page=${currentPage}`, options)
     return response.json()
   } catch {
     throw Error('There was an error updating the current page')

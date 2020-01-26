@@ -71,21 +71,17 @@ class Reader extends React.Component {
   };
 
   async onSwipeLeft() {
-    console.log('made it into onSwipeLeft')
     this.setState({
       currentPage: this.state.currentPage + 1
     })
     const currentText = await this.props.navigation.getParam('bookText', 'ERROR')
     const recommendation = await getRecommendation(this.state.currentToken, this.state.currentMood, currentText[this.state.currentPage])
-    console.log('recommendation.mood', recommendation.mood)
     if (recommendation.mood !== undefined) {
       this.setState({ currentMood: recommendation.mood })
-      console.log('this.state.currentMood', this.state.currentMood)
     } else {
       this.setState({ currentMood: this.state.currentMood })
-      console.log('this.state.currentMood', this.state.currentMood)
     }
-    // await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
+    await postSongToPlayer(recommendation.recommended_tracks, this.state.currentToken)
     const bookId = await this.props.navigation.getParam('bookId', 'ERROR')
     await updateCurrentPage(bookId, this.state.currentPage)
   };
