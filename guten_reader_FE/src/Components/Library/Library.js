@@ -71,6 +71,7 @@ class Library extends React.Component {
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
           <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
+          <Button style={styles.button} onPress={this.handlePress} title="SETTINGS"></Button>
         </View>
         <ScrollView>
           <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
