@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet, ScrollView } from 'react-native';
-import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
 import {getBooks, getBookText, deleteBook} from '../../apiCalls';
+import { createStackNavigator } from 'react-navigation-stack';
 import { withNavigation } from 'react-navigation';
 
 class Library extends React.Component {
@@ -12,6 +12,7 @@ class Library extends React.Component {
   constructor(props) {
     super(props);
     this.downloadBook = this.downloadBook.bind(this)
+    this.handlePress = this.handlePress.bind(this)
     this.state = {
       books: [],
       error: ''
@@ -58,16 +59,20 @@ class Library extends React.Component {
     deleteBook(userId, bookId)
   }
 
+  handlePress() {
+    this.props.navigation.navigate('Search')
+  }
+
   render() {
     this.refreshLibrary();
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
+        <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
         <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
         <ScrollView>
           <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         </ScrollView>
-        <MenuLibrary />
       </View>
     );
   }
@@ -90,7 +95,10 @@ const styles = StyleSheet.create({
    marginLeft: 20,
    margin: 15,
    marginTop: 30
-  }
+ },
+ button: {
+   fontSize: 20
+ }
 })
 
 export default withNavigation(Library);
