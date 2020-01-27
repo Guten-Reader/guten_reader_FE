@@ -99,13 +99,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 20,
     paddingRight: 20,
-    marginTop: 10
+    paddingTop: 10,
+    backgroundColor:'#cbf7e1'
   },
   title: {
    fontSize: 30,
    fontWeight: 'bold',
    paddingLeft: 18,
    paddingTop: 30,
+   paddingBottom: 5,
    backgroundColor: '#53E69B'
  },
  subTitle: {

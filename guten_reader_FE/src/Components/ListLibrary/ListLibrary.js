@@ -53,8 +53,10 @@ const styles = StyleSheet.create({
      flexDirection: 'column',
   },
    line: {
-     color: '#DDDDDD',
+     color: '#cbf7e1',
      paddingLeft: 20,
+     paddingRight: 20,
+     width: '100%',
      marginBottom: -20,
    },
    title: {

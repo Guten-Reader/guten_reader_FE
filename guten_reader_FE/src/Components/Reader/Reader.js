@@ -150,11 +150,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   pageNum: {
-    color: 'grey',
+    color: '#999999',
     fontWeight: 'bold',
   },
   bookTitle: {
-    color: 'grey',
+    color: '#999999',
     fontWeight: 'bold',
     width: '75%'
   },
