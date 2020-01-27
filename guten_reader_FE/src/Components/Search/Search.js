@@ -100,9 +100,9 @@ const styles = StyleSheet.create({
   },
   title: {
    color: 'white',
-   fontSize: 15,
+   fontSize: 20,
    fontWeight: 'bold',
-   marginTop: 40,
+   marginTop: 20,
    marginRight: 20,
    marginLeft: 20,
    marginBottom: 10,
