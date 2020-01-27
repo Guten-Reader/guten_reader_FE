@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, ScrollView, Text, TextInput, StatusBar } from 'react-native';
-import ListSearch from '../ListSearch/ListSearch';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { StyleSheet, View, Button, ScrollView, Text, TextInput } from 'react-native';
+import ListSearch from '../ListSearch/ListSearch'
 
 class Search extends Component {
-  static navigationOptions = {
-    title: 'Search',
-    headerStyle: {
-       backgroundColor: '#000000',
-     },
-    headerTitleStyle: {
-      color: '#FFFFFF',
-    }
-  }
-
   constructor() {
     super();
     this.state = {
@@ -72,22 +61,21 @@ class Search extends Component {
 
     return (
       <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
         <Text style={styles.title}>Search by Title or Author:</Text>
-        <View style={styles.search}>
-          <TextInput
-            placeholder="Title or Author"
-            style={styles.input}
-            onChangeText={this.updateState}
-            value={this.state.searchQuery}
-          />
-          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.searchBtn} />
-        </View>
-        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, }} />
+        <TextInput
+          placeholder="Title or Author"
+          style={styles.input}
+          onChangeText={this.updateState}
+          value={this.state.searchQuery}
+        />
+        <Button title="SEARCH" onPress={this.searchBtn}/>
         {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}
         </ScrollView>
+        <View style={styles.toolbar}>
+          <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
+        </View>
       </View>
     )
   }
@@ -99,11 +87,22 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
+  input: {
+    color: 'black',
+    backgroundColor: 'white',
+    borderColor: 'white',
+    borderWidth: 1,
+    marginTop: 10,
+    marginBottom: 10,
+    padding: 15,
+    marginLeft: 20,
+    marginRight: 20
+  },
   title: {
    color: 'white',
-   fontSize: 20,
+   fontSize: 15,
    fontWeight: 'bold',
-   marginTop: 20,
+   marginTop: 40,
    marginRight: 20,
    marginLeft: 20,
    marginBottom: 10,
