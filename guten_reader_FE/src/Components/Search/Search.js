@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, ScrollView, Text, TextInput } from 'react-native';
-import ListSearch from '../ListSearch/ListSearch'
+import { StyleSheet, View, Button, ScrollView, Text, TextInput, StatusBar } from 'react-native';
+import ListSearch from '../ListSearch/ListSearch';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 class Search extends Component {
+  static navigationOptions = {
+    title: 'Search',
+    headerStyle: {
+       backgroundColor: '#000000',
+     },
+    headerTitleStyle: {
+      color: '#FFFFFF',
+    }
+  }
+
   constructor() {
     super();
     this.state = {
@@ -61,21 +72,22 @@ class Search extends Component {
 
     return (
       <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
         <Text style={styles.title}>Search by Title or Author:</Text>
-        <TextInput
-          placeholder="Title or Author"
-          style={styles.input}
-          onChangeText={this.updateState}
-          value={this.state.searchQuery}
-        />
-        <Button title="SEARCH" onPress={this.searchBtn}/>
+        <View style={styles.search}>
+          <TextInput
+            placeholder="Title or Author"
+            style={styles.input}
+            onChangeText={this.updateState}
+            value={this.state.searchQuery}
+          />
+          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.searchBtn} />
+        </View>
+        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, }} />
         {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}
         </ScrollView>
-        <View style={styles.toolbar}>
-          <Button style={styles.button} onPress={() => this.props.navigation.navigate('Library')} title="BACK"></Button>
-        </View>
       </View>
     )
   }
@@ -87,22 +99,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
-  input: {
-    color: 'black',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    marginTop: 10,
-    marginBottom: 10,
-    padding: 15,
-    marginLeft: 20,
-    marginRight: 20
-  },
   title: {
    color: 'white',
-   fontSize: 15,
+   fontSize: 20,
    fontWeight: 'bold',
-   marginTop: 40,
+   marginTop: 20,
    marginRight: 20,
    marginLeft: 20,
    marginBottom: 10,
@@ -111,16 +112,27 @@ const styles = StyleSheet.create({
    color: 'white',
    margin: 20
  },
- toolbar: {
-   position: 'absolute',
-   bottom: 0,
-   right: 0,
-   left: 0,
-   backgroundColor: '#53E69B',
-   justifyContent: 'center',
-   height: 65,
-   width: '100%',
-   alignItems: 'center'
+ input: {
+   color: 'black',
+   backgroundColor: 'white',
+   borderColor: 'white',
+   borderWidth: 1,
+   marginTop: 10,
+   marginBottom: 10,
+   padding: 15,
+   marginLeft: 20,
+   width: '77%'
+ },
+ magnifier: {
+   fontSize: 25,
+   borderWidth: 1,
+   borderColor: '#d6d7da',
+   padding: 9.5,
+ },
+ search: {
+   alignItems: 'center',
+   flexDirection: 'row',
+   marginBottom: 20
  }
 })
 
