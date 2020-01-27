@@ -8,10 +8,8 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from '../../apiCalls'
 
 class Reader extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Reader',
-    }
+  static navigationOptions = {
+    title: 'Reader'
   }
 
   constructor() {
