@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
    fontSize: 25,
    borderWidth: 1,
    borderColor: '#d6d7da',
-   padding: 9.5,
+   padding: 9.4,
  },
  search: {
    alignItems: 'center',
