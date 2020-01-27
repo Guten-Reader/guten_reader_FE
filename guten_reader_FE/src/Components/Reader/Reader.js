@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Button, StatusBar } from 'react-native';
 import { createAppContainer, withNavigation } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
@@ -103,10 +103,11 @@ class Reader extends React.Component {
     const currentText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
       <View style={styles.container}>
-      <View style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10}}>
-        <Text style={styles.bookTitle}>{bookTitle}</Text>
-        <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
-      </View>
+      <StatusBar barStyle="dark-content" />
+        <View style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10}}>
+          <Text style={styles.bookTitle}>{bookTitle}</Text>
+          <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
+        </View>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
             <View style={styles.fontButtons}>
@@ -149,11 +150,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   pageNum: {
-    color: 'grey',
+    color: '#999999',
     fontWeight: 'bold',
   },
   bookTitle: {
-    color: 'grey',
+    color: '#999999',
     fontWeight: 'bold',
     width: '75%'
   },

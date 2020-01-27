@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Button, View, Text, StyleSheet, ScrollView, StatusBar } from 'react-native';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
 import {getBooks, getBookText, deleteBook} from '../../apiCalls';
 import { createStackNavigator } from 'react-navigation-stack';
 import { withNavigation } from 'react-navigation';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 class Library extends React.Component {
 
@@ -67,12 +68,14 @@ class Library extends React.Component {
     this.refreshLibrary();
     return (
       <View style={styles.library}>
-        <Text style={styles.title}>Guten Reader</Text>
+      <StatusBar barStyle="dark-content" />
+        <Text style={styles.title}>GutenReader</Text>
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
-          <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
-          <Button style={styles.button} onPress={this.handlePress} title="SETTINGS"></Button>
+          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.handlePress} />
+          <Icon style={styles.settings} name="settings" color="#53E69B" onPress={this.handlePress} />
         </View>
+        <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, }} />
         <ScrollView>
           <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         </ScrollView>
@@ -96,21 +99,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor:'#FFFFFF'
   },
   title: {
    fontSize: 30,
    fontWeight: 'bold',
-   marginLeft: 20,
-   marginTop: 30
+   paddingLeft: 18,
+   paddingTop: 30,
+   paddingBottom: 5,
+   backgroundColor: '#53E69B'
  },
  subTitle: {
-   fontSize: 20
+   fontSize: 20,
+   fontWeight: 'bold',
  },
  button: {
    fontSize: 20
+ },
+ settings : {
+   fontSize: 25,
+ },
+ magnifier : {
+   fontSize: 25,
  }
 })
 
