@@ -1,6 +1,6 @@
 export const getBooks = async(userId) => {
+  const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books`)
   try {
-    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books`)
     return response.json()
   } catch {
     throw Error(response.statusText)
@@ -8,8 +8,8 @@ export const getBooks = async(userId) => {
 }
 
 export const getBookText = async(userId, bookId) => {
+  const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`)
   try {
-    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`)
     return response.json()
   } catch {
     throw Error(response.statusText)
@@ -17,19 +17,18 @@ export const getBookText = async(userId, bookId) => {
 }
 
 export const getToken = async() => {
+  const response = await fetch('https://guten-server.herokuapp.com/api/v1/access_token/1')
   try {
-    const response = await fetch('https://guten-server.herokuapp.com/api/v1/access_token/1')
     return response.json()
   } catch {
     throw Error('There was an error getting a token')
   }
 }
 
-export const getRecommendation = async(token, currentMood, currentText="very positive nice wonderful", genre="classical") => {
+export const getRecommendation = async(token, currentMood, currentText) => {
   let recommendation = {
-    genre: genre,
     current_mood: currentMood,
-    text: currentText,
+    text: "very positive nice wonderful",
     access_token: token
   }
   let options = {
@@ -39,15 +38,11 @@ export const getRecommendation = async(token, currentMood, currentText="very pos
       'Content-Type': 'application/json'
     }
   }
+  const response = await fetch('https://micro-guten.herokuapp.com/api/v1/recommendation', options)
   try {
-    const response = await fetch('https://micro-guten.herokuapp.com/api/v1/recommendation', options)
-    if (response.status === 200) {
-      return response.json().then(function(data) {
-        return data
-      })
-    } else {
-      return {}
-    }
+    return response.json().then(function(data) {
+      return data
+    })
   } catch {
     throw Error('There was an error getting a recommendation')
   }
@@ -65,19 +60,13 @@ export const postSongToPlayer = async(uri, token) => {
       'Content-Type': 'application/json'
     }
   }
+  const response = await fetch('https://api.spotify.com/v1/me/player/play', options)
   try {
-    const response = await fetch('https://api.spotify.com/v1/me/player/play', options)
-    if (response.status === 200) {
-      return response.json().then(function(data) {
-        return data
-      })
-    } else {
-      return {}
-    }
+    return response.json()
   } catch {
     throw Error('There was an error playing this song')
   }
-}
+} 
 
 export const updateCurrentPage = async(bookId, currentPage) => {
   let options = {
@@ -86,8 +75,8 @@ export const updateCurrentPage = async(bookId, currentPage) => {
       'Content-Type': 'application/json'
     }
   }
+  const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books/${bookId}?current_page=${currentPage}`, options)
   try {
-    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/1/books/${bookId}?current_page=${currentPage}`, options)
     return response.json()
   } catch {
     throw Error('There was an error updating the current page')
@@ -102,8 +91,8 @@ export const addBook = async(userId, book) => {
       'Content-Type': 'application/json'
     }
   };
+  const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books`, options);
   try {
-    const response = await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books`, options);
     return response.json()
   } catch {
     throw Error('There was an error adding a new book')
@@ -117,8 +106,8 @@ export const deleteBook = async(userId, bookId) => {
       'Content-Type': 'application/json'
     }
   }
+  await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options);
   try {
-    await fetch(`https://guten-server.herokuapp.com/api/v1/users/${userId}/books/${bookId}`, options);
   } catch {
     throw Error('There was an error deleting your book')
   }
