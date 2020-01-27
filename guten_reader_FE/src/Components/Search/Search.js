@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Button, ScrollView, Text, TextInput, StatusBar } from 'react-native';
-import ListSearch from '../ListSearch/ListSearch'
+import ListSearch from '../ListSearch/ListSearch';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 class Search extends Component {
   static navigationOptions = {
@@ -71,15 +72,17 @@ class Search extends Component {
 
     return (
       <View style={styles.container}>
-      <StatusBar barStyle="light-content" /> 
+      <StatusBar barStyle="light-content" />
         <Text style={styles.title}>Search by Title or Author:</Text>
-        <TextInput
-          placeholder="Title or Author"
-          style={styles.input}
-          onChangeText={this.updateState}
-          value={this.state.searchQuery}
-        />
-        <Button title="SEARCH" onPress={this.searchBtn}/>
+        <View style={styles.search}>
+          <TextInput
+            placeholder="Title or Author"
+            style={styles.input}
+            onChangeText={this.updateState}
+            value={this.state.searchQuery}
+          />
+          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.searchBtn} />
+        </View>
         {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}
@@ -104,7 +107,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 15,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    width: '75%'
   },
   title: {
    color: 'white',
@@ -129,6 +133,13 @@ const styles = StyleSheet.create({
    height: 65,
    width: '100%',
    alignItems: 'center'
+ },
+ magnifier: {
+   fontSize: 25
+ },
+ search: {
+   alignItems: 'center',
+   flexDirection: 'row'
  }
 })
 
