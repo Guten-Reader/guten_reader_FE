@@ -106,7 +106,7 @@ class Reader extends React.Component {
     return (
       <View style={styles.container}>
       <View style={styles.bookInfo}>
-        <Text style={styles.pageNum}>{bookTitle}</Text>
+        <Text style={styles.bookTitle}>{bookTitle}</Text>
         <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
       </View>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
@@ -152,8 +152,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   pageNum: {
-    alignItems: 'flex-end',
-    fontWeight: 'bold'
+    color: 'grey',
+    fontWeight: 'bold',
+  },
+  bookTitle: {
+    color: 'grey',
+    fontWeight: 'bold',
+    width: '75%'
   },
   bookInfo: {
     flexDirection: 'row',
