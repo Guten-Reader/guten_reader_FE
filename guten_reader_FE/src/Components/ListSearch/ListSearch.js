@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Button, Text } from 'react-native';
 import { addBook } from '../../apiCalls';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 class ListSearch extends Component {
   constructor() {
@@ -27,7 +28,7 @@ class ListSearch extends Component {
           <Text style={styles.title}>{this.props.book.title}</Text>
           <Text style={styles.author}>{this.props.book.author}</Text>
         </View>
-        <Button title={this.state.checkout ? "ON SHELF" : "CHECKOUT"} onPress={this.addBookToLibrary} style={styles.button}/>
+        <Icon style={styles.download} name={this.state.checkout ? "check" : "arrow-down-circle"} color="#53E69B" onPress={this.addBookToLibrary} />
     </View>
   )
 }}
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 20,
     justifyContent: 'space-between'
-  }, 
+  },
   title: {
     color: 'white',
     fontWeight: 'bold',
@@ -52,6 +53,10 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 10,
     width: 200
+  },
+  download: {
+    fontSize: 25,
+    paddingTop: 10
   }
 });
 
