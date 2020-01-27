@@ -3,7 +3,6 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { withNavigation } from 'react-navigation';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 function ListLibrary(props) {
 
@@ -15,15 +14,15 @@ function ListLibrary(props) {
     return props.books.map((book) => {
       return (
         <View key={book.id} style={styles.listCont}>
+          <Text style={styles.line}>______________________________________________________</Text>
           <View style={styles.list}>
-            <Icon style={styles.close} name="close" color="#53E69B" onPress={() => props.handleDelete(1, book.id)} />
+            <Button onPress={() => props.handleDelete(1, book.id)} title="X" />
             <View>
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>
             </View>
-            <Icon style={styles.bookOpen} name="book-open" color="#53E69B" onPress={() => handlePress(book.id)} />
+            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ"/>
           </View>
-          <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, marginLeft: 20, marginRight: 20 }} />
         </View>
       )
     })
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
   list: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 20
   },
   listItem: {
@@ -52,21 +52,20 @@ const styles = StyleSheet.create({
    listCont: {
      flexDirection: 'column',
   },
+   line: {
+     color: '#DDDDDD',
+     paddingLeft: 20,
+     marginBottom: -20,
+   },
    title: {
      fontWeight: 'bold',
      fontSize: 20,
+     paddingTop: 10,
+     paddingBottom: 10,
      width: 200
    },
    author: {
      fontSize: 15
-   },
-   close: {
-     fontSize: 20,
-     paddingTop: 7
-   },
-   bookOpen: {
-     fontSize: 25,
-     paddingTop: 10
    }
 })
 
