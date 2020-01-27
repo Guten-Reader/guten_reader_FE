@@ -3,6 +3,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { withNavigation } from 'react-navigation';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 function ListLibrary(props) {
 
@@ -16,12 +17,12 @@ function ListLibrary(props) {
         <View key={book.id} style={styles.listCont}>
           <Text style={styles.line}>______________________________________________________</Text>
           <View style={styles.list}>
-            <Button onPress={() => props.handleDelete(1, book.id)} title="X" />
+            <Icon style={styles.close} name="close" color="#53E69B" onPress={() => props.handleDelete(1, book.id)} />
             <View>
               <Text style={styles.listItem, styles.title}>{book.title}</Text>
               <Text style={styles.listItem, styles.author}>{book.author}</Text>
             </View>
-            <Button style={styles.button} onPress={() => handlePress(book.id)} title="READ"/>
+            <Icon style={styles.bookOpen} name="book-open" color="#53E69B" onPress={() => handlePress(book.id)} />
           </View>
         </View>
       )
@@ -39,7 +40,6 @@ const styles = StyleSheet.create({
   list: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     padding: 20
   },
   listItem: {
@@ -68,6 +68,14 @@ const styles = StyleSheet.create({
    },
    author: {
      fontSize: 15
+   },
+   close: {
+     fontSize: 20,
+     paddingTop: 15
+   },
+   bookOpen: {
+     fontSize: 25,
+     paddingTop: 15
    }
 })
 
