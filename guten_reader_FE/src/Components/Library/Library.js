@@ -75,6 +75,7 @@ class Library extends React.Component {
           <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.handlePress} />
           <Icon style={styles.settings} name="settings" color="#53E69B" onPress={this.handlePress} />
         </View>
+        <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, }} />
         <ScrollView>
           <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         </ScrollView>
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor:'#FFFFFF'
   },
   title: {

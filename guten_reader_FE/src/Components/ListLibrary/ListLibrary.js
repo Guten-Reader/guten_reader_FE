@@ -15,7 +15,6 @@ function ListLibrary(props) {
     return props.books.map((book) => {
       return (
         <View key={book.id} style={styles.listCont}>
-          <Text style={styles.line}>______________________________________________________</Text>
           <View style={styles.list}>
             <Icon style={styles.close} name="close" color="#53E69B" onPress={() => props.handleDelete(1, book.id)} />
             <View>
@@ -24,6 +23,7 @@ function ListLibrary(props) {
             </View>
             <Icon style={styles.bookOpen} name="book-open" color="#53E69B" onPress={() => handlePress(book.id)} />
           </View>
+          <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, margin: 20}} />
         </View>
       )
     })
@@ -52,18 +52,10 @@ const styles = StyleSheet.create({
    listCont: {
      flexDirection: 'column',
   },
-   line: {
-     color: '#cbf7e1',
-     paddingLeft: 20,
-     paddingRight: 20,
-     width: '100%',
-     marginBottom: -20,
-   },
    title: {
      fontWeight: 'bold',
      fontSize: 20,
-     paddingTop: 10,
-     paddingBottom: 10,
+
      width: 200
    },
    author: {
@@ -71,11 +63,11 @@ const styles = StyleSheet.create({
    },
    close: {
      fontSize: 20,
-     paddingTop: 15
+     paddingTop: 7
    },
    bookOpen: {
      fontSize: 25,
-     paddingTop: 15
+     paddingTop: 10
    }
 })
 
