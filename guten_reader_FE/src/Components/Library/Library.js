@@ -6,6 +6,7 @@ import MenuLibrary from '../MenuLibrary/MenuLibrary';
 import {getBooks, getBookText, deleteBook} from '../../apiCalls';
 import { createStackNavigator } from 'react-navigation-stack';
 import { withNavigation } from 'react-navigation';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 class Library extends React.Component {
 
@@ -71,9 +72,10 @@ class Library extends React.Component {
         <Text style={styles.title}>GutenReader</Text>
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
-          <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
-          <Button style={styles.button} onPress={this.handlePress} title="SETTINGS"></Button>
+          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.handlePress} />
+          <Icon style={styles.settings} name="settings" color="#53E69B" onPress={this.handlePress} />
         </View>
+        <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, }} />
         <ScrollView>
           <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
         </ScrollView>
@@ -100,7 +102,8 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
-    backgroundColor:'#cbf7e1'
+    paddingBottom: 10,
+    backgroundColor:'#FFFFFF'
   },
   title: {
    fontSize: 30,
@@ -112,10 +115,16 @@ const styles = StyleSheet.create({
  },
  subTitle: {
    fontSize: 20,
-   fontWeight: 'bold'
+   fontWeight: 'bold',
  },
  button: {
    fontSize: 20
+ },
+ settings : {
+   fontSize: 25,
+ },
+ magnifier : {
+   fontSize: 25,
  }
 })
 
