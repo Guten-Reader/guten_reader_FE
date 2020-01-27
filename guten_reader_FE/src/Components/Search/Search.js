@@ -98,18 +98,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
-  input: {
-    color: 'black',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    marginTop: 10,
-    marginBottom: 10,
-    padding: 15,
-    marginLeft: 20,
-    marginRight: 20,
-    width: '75%'
-  },
   title: {
    color: 'white',
    fontSize: 15,
@@ -123,23 +111,26 @@ const styles = StyleSheet.create({
    color: 'white',
    margin: 20
  },
- toolbar: {
-   position: 'absolute',
-   bottom: 0,
-   right: 0,
-   left: 0,
-   backgroundColor: '#53E69B',
-   justifyContent: 'center',
-   height: 65,
-   width: '100%',
-   alignItems: 'center'
+ input: {
+   color: 'black',
+   backgroundColor: 'white',
+   borderColor: 'white',
+   borderWidth: 1,
+   marginTop: 10,
+   marginBottom: 10,
+   padding: 15,
+   marginLeft: 20,
+   width: '77%'
  },
  magnifier: {
-   fontSize: 25
+   fontSize: 25,
+   borderWidth: 1,
+   borderColor: '#d6d7da',
+   padding: 9.5,
  },
  search: {
    alignItems: 'center',
-   flexDirection: 'row'
+   flexDirection: 'row',
  }
 })
 
