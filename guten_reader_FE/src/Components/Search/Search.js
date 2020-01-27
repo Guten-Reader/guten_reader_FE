@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, ScrollView, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Button, ScrollView, Text, TextInput, StatusBar } from 'react-native';
 import ListSearch from '../ListSearch/ListSearch'
 
 class Search extends Component {
@@ -71,6 +71,7 @@ class Search extends Component {
 
     return (
       <View style={styles.container}>
+      <StatusBar barStyle="light-content" /> 
         <Text style={styles.title}>Search by Title or Author:</Text>
         <TextInput
           placeholder="Title or Author"

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Button, View, Text, StyleSheet, ScrollView, StatusBar } from 'react-native';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
@@ -67,6 +67,7 @@ class Library extends React.Component {
     this.refreshLibrary();
     return (
       <View style={styles.library}>
+      <StatusBar barStyle="dark-content" />
         <Text style={styles.title}>GutenReader</Text>
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
