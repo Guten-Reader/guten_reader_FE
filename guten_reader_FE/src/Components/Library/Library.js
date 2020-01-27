@@ -104,11 +104,12 @@ const styles = StyleSheet.create({
   title: {
    fontSize: 30,
    fontWeight: 'bold',
-   marginLeft: 20,
+   marginLeft: 15,
    marginTop: 30
  },
  subTitle: {
-   fontSize: 20
+   fontSize: 20,
+   fontWeight: 'bold'
  },
  button: {
    fontSize: 20
