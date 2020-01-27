@@ -97,15 +97,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 20,
-    marginRight: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
     marginTop: 10
   },
   title: {
    fontSize: 30,
    fontWeight: 'bold',
-   marginLeft: 15,
-   marginTop: 30
+   paddingLeft: 18,
+   paddingTop: 30,
+   backgroundColor: '#53E69B'
  },
  subTitle: {
    fontSize: 20,
