@@ -23,7 +23,7 @@ function ListLibrary(props) {
             </View>
             <Icon style={styles.bookOpen} name="book-open" color="#53E69B" onPress={() => handlePress(book.id)} />
           </View>
-          <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, margin: 20}} />
+          <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, marginLeft: 20, marginRight: 20 }} />
         </View>
       )
     })
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
    title: {
      fontWeight: 'bold',
      fontSize: 20,
-
      width: 200
    },
    author: {

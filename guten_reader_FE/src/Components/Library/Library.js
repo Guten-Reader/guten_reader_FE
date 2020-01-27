@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
  },
  subTitle: {
    fontSize: 20,
-   fontWeight: 'bold'
+   fontWeight: 'bold',
  },
  button: {
    fontSize: 20
