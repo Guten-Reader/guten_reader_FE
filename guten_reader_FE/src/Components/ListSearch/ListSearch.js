@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Button, Text } from 'react-native';
 import { addBook } from '../../apiCalls';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 class ListSearch extends Component {
   constructor() {
@@ -23,18 +22,15 @@ class ListSearch extends Component {
 
   render() {
     return (
-      <View>
-        <View style={styles.container}>
-          <View style={styles.text}>
-            <Text style={styles.title}>{this.props.book.title}</Text>
-            <Text style={styles.author}>{this.props.book.author}</Text>
-          </View>
-          <Icon style={styles.download} name={this.state.checkout ? "check" : "arrow-down-circle"} color="#53E69B" onPress={this.addBookToLibrary} />
+      <View style={styles.container}>
+        <View style={styles.text}>
+          <Text style={styles.title}>{this.props.book.title}</Text>
+          <Text style={styles.author}>{this.props.book.author}</Text>
         </View>
-        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginLeft: 20, marginRight: 20 }} />
-      </View>
-      )
-    }}
+        <Button title={this.state.checkout ? "ON SHELF" : "CHECKOUT"} onPress={this.addBookToLibrary} style={styles.button}/>
+    </View>
+  )
+}}
 
 const styles = StyleSheet.create({
   container: {
@@ -42,12 +38,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 20,
     justifyContent: 'space-between'
-  },
+  }, 
   title: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
-    paddingTop: 25,
+    paddingTop: 10,
     paddingBottom: 10,
     width: 200
   },
@@ -56,10 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 10,
     width: 200
-  },
-  download: {
-    fontSize: 25,
-    paddingTop: 30
   }
 });
 
