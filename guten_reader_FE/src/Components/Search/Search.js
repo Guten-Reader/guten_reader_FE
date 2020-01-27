@@ -83,6 +83,7 @@ class Search extends Component {
           />
           <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.searchBtn} />
         </View>
+        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, }} />
         {this.state.searchResult ? null : <Text style={styles.title}>{searchError}</Text>}
         <ScrollView style={styles.scrollview}>
           {renderSearchResults}
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
  search: {
    alignItems: 'center',
    flexDirection: 'row',
+   marginBottom: 20
  }
 })
 

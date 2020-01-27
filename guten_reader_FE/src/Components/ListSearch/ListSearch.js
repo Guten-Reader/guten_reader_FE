@@ -23,15 +23,18 @@ class ListSearch extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.text}>
-          <Text style={styles.title}>{this.props.book.title}</Text>
-          <Text style={styles.author}>{this.props.book.author}</Text>
+      <View>
+        <View style={styles.container}>
+          <View style={styles.text}>
+            <Text style={styles.title}>{this.props.book.title}</Text>
+            <Text style={styles.author}>{this.props.book.author}</Text>
+          </View>
+          <Icon style={styles.download} name={this.state.checkout ? "check" : "arrow-down-circle"} color="#53E69B" onPress={this.addBookToLibrary} />
         </View>
-        <Icon style={styles.download} name={this.state.checkout ? "check" : "arrow-down-circle"} color="#53E69B" onPress={this.addBookToLibrary} />
-    </View>
-  )
-}}
+        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginLeft: 20, marginRight: 20 }} />
+      </View>
+      )
+    }}
 
 const styles = StyleSheet.create({
   container: {
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
-    paddingTop: 10,
+    paddingTop: 25,
     paddingBottom: 10,
     width: 200
   },
@@ -56,7 +59,7 @@ const styles = StyleSheet.create({
   },
   download: {
     fontSize: 25,
-    paddingTop: 10
+    paddingTop: 30
   }
 });
 
