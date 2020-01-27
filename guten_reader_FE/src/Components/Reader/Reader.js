@@ -105,32 +105,31 @@ class Reader extends React.Component {
     const currentText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
       <View style={styles.container}>
-      <View style={styles.bookInfo}>
+      <View style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10}}>
         <Text style={styles.bookTitle}>{bookTitle}</Text>
         <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
       </View>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
             <View style={styles.fontButtons}>
-                <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
-                <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
-                <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Font" />
-                <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Dark Mode' : 'Light Mode'} />
-              </View>
-              <Text style={{
-                padding: 20,
-                fontSize: (this.state.defaultFontSize),
-                fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2'),
-                color: (this.state.isOnDarkMode === true ? 'white' : 'black')
-                }}>
-                {bookText[this.state.currentPage]}}
-              </Text>
+              <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
+              <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
+              <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Font" />
+              <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Dark Mode' : 'Light Mode'} />
+            </View>
+            <Text style={{
+              padding: 20,
+              fontSize: (this.state.defaultFontSize),
+              fontFamily: (this.state.defaultFontFamily === true ? 'Roboto' : 'OpenDyslexic2'),
+              color: (this.state.isOnDarkMode === true ? 'white' : 'black'),
+              }}>
+              {bookText[this.state.currentPage]}}
+            </Text>
           </ScrollView>
         </GestureRecognizer>
       </View>
     )}
    }
-
 
 const AppNavigator = createStackNavigator({
   Reader: {
@@ -165,7 +164,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 10
+    paddingTop: 10,
+    paddingBottom: 10
   }
 });
 
