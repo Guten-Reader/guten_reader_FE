@@ -67,7 +67,7 @@ class Library extends React.Component {
     this.refreshLibrary();
     return (
       <View style={styles.library}>
-        <Text style={styles.title}>Guten Reader</Text>
+        <Text style={styles.title}>GutenReader</Text>
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
           <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
