@@ -8,11 +8,9 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from '../../apiCalls'
 
 class Reader extends React.Component {
-  static navigationOptions = {
-    title: 'Book Title',
-    headerRight: <Text>Page Number</Text>,
-    headerRightContainerStyle: {
-      paddingRight: 20
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Reader',
     }
   }
 
@@ -103,9 +101,14 @@ class Reader extends React.Component {
 
   render() {
     const bookText = this.props.navigation.getParam('bookText', 'ERROR')
+    const bookTitle = this.props.navigation.getParam('title', 'ERROR')
+    const currentText = this.props.navigation.getParam('bookText', 'ERROR')
     return (
       <View style={styles.container}>
-      <Text style={styles.pageNum}>{this.state.currentPage}</Text>
+      <View style={styles.bookInfo}>
+        <Text style={styles.pageNum}>{bookTitle}</Text>
+        <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
+      </View>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
           <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
             <View style={styles.fontButtons}>
@@ -149,8 +152,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   pageNum: {
+    alignItems: 'flex-end',
+    fontWeight: 'bold'
+  },
+  bookInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingLeft: 20,
-    alignItems: 'flex-end'
+    paddingRight: 20,
+    paddingTop: 10
   }
 });
 
