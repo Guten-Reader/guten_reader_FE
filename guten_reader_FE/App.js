@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Reader from './src/Components/Reader/Reader.js';
 import Library from './src/Components/Library/Library.js';
 import Search from './src/Components/Search/Search.js';
+import Settings from './src/Components/Settings/Settings'
 import 'react-native-gesture-handler';
 
 
@@ -19,6 +20,9 @@ const MainNavigator = createStackNavigator({
   },
   Search: {
     screen: Search,
+  },
+  Settings: {
+    screen: Settings,
   }
 });
 
