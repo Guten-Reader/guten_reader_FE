@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Button, View, Text, StyleSheet, ScrollView, StatusBar } from 'react-native';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
@@ -67,7 +67,8 @@ class Library extends React.Component {
     this.refreshLibrary();
     return (
       <View style={styles.library}>
-        <Text style={styles.title}>Guten Reader</Text>
+      <StatusBar barStyle="dark-content" />
+        <Text style={styles.title}>GutenReader</Text>
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
           <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
@@ -96,18 +97,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    backgroundColor:'#cbf7e1'
   },
   title: {
    fontSize: 30,
    fontWeight: 'bold',
-   marginLeft: 20,
-   marginTop: 30
+   paddingLeft: 18,
+   paddingTop: 30,
+   paddingBottom: 5,
+   backgroundColor: '#53E69B'
  },
  subTitle: {
-   fontSize: 20
+   fontSize: 20,
+   fontWeight: 'bold'
  },
  button: {
    fontSize: 20
