@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
-import { createStackNavigator } from 'react-navigation-stack';
+import { Button, View, Text, StyleSheet, ScrollView } from 'react-native';
 import * as Font from 'expo-font';
 import ListLibrary from '../ListLibrary/ListLibrary';
 import MenuLibrary from '../MenuLibrary/MenuLibrary';
 import {getBooks, getBookText, deleteBook} from '../../apiCalls';
+import { createStackNavigator } from 'react-navigation-stack';
 import { withNavigation } from 'react-navigation';
 
 class Library extends React.Component {
@@ -12,6 +12,7 @@ class Library extends React.Component {
   constructor(props) {
     super(props);
     this.downloadBook = this.downloadBook.bind(this)
+    this.handlePress = this.handlePress.bind(this)
     this.state = {
       books: [],
       error: ''
@@ -51,11 +52,15 @@ class Library extends React.Component {
   async downloadBook(userId, bookId) {
     const bookText = await getBookText(userId, bookId)
     const foundBook = this.state.books.find(book => book.id === bookId)
-    this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId, currentPage: foundBook.current_page})
+    this.props.navigation.navigate('Reader', {bookText: bookText.data.book, bookId: bookId, currentPage: foundBook.current_page, title: foundBook.title})
   }
 
   handleDelete(userId, bookId) {
     deleteBook(userId, bookId)
+  }
+
+  handlePress() {
+    this.props.navigation.navigate('Search')
   }
 
   render() {
@@ -63,9 +68,14 @@ class Library extends React.Component {
     return (
       <View style={styles.library}>
         <Text style={styles.title}>Guten Reader</Text>
-        <Text style={{ marginLeft: 20, fontSize: 20}}>My Bookshelf</Text>
-        <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
-        <MenuLibrary />
+        <View style={styles.subHeading}>
+          <Text style={styles.subTitle}>My Bookshelf</Text>
+          <Button style={styles.button} onPress={this.handlePress} title="SEARCH"></Button>
+          <Button style={styles.button} onPress={this.handlePress} title="SETTINGS"></Button>
+        </View>
+        <ScrollView>
+          <ListLibrary books={this.state.books} downloadBook={this.downloadBook} handleDelete={this.handleDelete}/>
+        </ScrollView>
       </View>
     );
   }
@@ -82,13 +92,26 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
+  subHeading: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10
+  },
   title: {
    fontSize: 30,
    fontWeight: 'bold',
    marginLeft: 20,
-   margin: 15,
    marginTop: 30
-  }
+ },
+ subTitle: {
+   fontSize: 20
+ },
+ button: {
+   fontSize: 20
+ }
 })
 
 export default withNavigation(Library);

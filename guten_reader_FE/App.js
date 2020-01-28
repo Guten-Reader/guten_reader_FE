@@ -16,15 +16,9 @@ const MainNavigator = createStackNavigator({
   },
   Reader: {
     screen: Reader,
-    navigationOptions: {
-      header: null,
-    }
   },
   Search: {
     screen: Search,
-    navigationOptions: {
-      header: null,
-    }
   }
 });
 
