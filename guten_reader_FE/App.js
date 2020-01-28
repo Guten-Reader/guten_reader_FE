@@ -5,6 +5,7 @@ import Library from './src/Components/Library/Library.js';
 import Search from './src/Components/Search/Search.js';
 import 'react-native-gesture-handler';
 
+console.disableYellowBox = true;
 
 const MainNavigator = createStackNavigator({
 
@@ -16,9 +17,15 @@ const MainNavigator = createStackNavigator({
   },
   Reader: {
     screen: Reader,
+    navigationOptions: {
+      header: null,
+    }
   },
   Search: {
     screen: Search,
+    navigationOptions: {
+      header: null,
+    }
   }
 });
 
