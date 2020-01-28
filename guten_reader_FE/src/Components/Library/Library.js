@@ -13,7 +13,8 @@ class Library extends React.Component {
   constructor(props) {
     super(props);
     this.downloadBook = this.downloadBook.bind(this)
-    this.handlePress = this.handlePress.bind(this)
+    this.handleSearchPress = this.handleSearchPress.bind(this)
+    this.handleSettingsPress = this.handleSettingsPress.bind(this)
     this.state = {
       books: [],
       error: ''
@@ -60,8 +61,12 @@ class Library extends React.Component {
     deleteBook(userId, bookId)
   }
 
-  handlePress() {
+  handleSearchPress() {
     this.props.navigation.navigate('Search')
+  }
+
+  handleSettingsPress() {
+    this.props.navigation.navigate('Settings')
   }
 
   render() {
@@ -72,8 +77,8 @@ class Library extends React.Component {
         <Text style={styles.title}>GutenReader</Text>
         <View style={styles.subHeading}>
           <Text style={styles.subTitle}>My Bookshelf</Text>
-          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.handlePress} />
-          <Icon style={styles.settings} name="settings" color="#53E69B" onPress={this.handlePress} />
+          <Icon style={styles.magnifier} name="magnifier" color="#53E69B" onPress={this.handleSearchPress} />
+          <Icon style={styles.settings} name="settings" color="#53E69B" onPress={this.handleSettingsPress} />
         </View>
         <View style={{ borderBottomColor: '#cbf7e1', borderBottomWidth: 1, }} />
         <ScrollView>
