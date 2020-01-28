@@ -25,8 +25,9 @@ export const getToken = async() => {
   }
 }
 
-export const getRecommendation = async(token, currentMood, currentText="very positive nice wonderful") => {
+export const getRecommendation = async(token, currentMood, currentText="very positive nice wonderful", genre="classical") => {
   let recommendation = {
+    genre: genre,
     current_mood: currentMood,
     text: currentText,
     access_token: token
