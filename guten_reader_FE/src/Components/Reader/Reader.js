@@ -16,7 +16,7 @@ class Reader extends React.Component {
       }
     }
 
-  constructor() {
+  constructor() {g
     super();
     this.state = {
       currentPage: 0,
