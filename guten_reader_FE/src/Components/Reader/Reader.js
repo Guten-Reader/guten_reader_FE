@@ -112,8 +112,8 @@ class Reader extends React.Component {
           <Text style={styles.bookTitle}>{bookTitle}</Text>
           <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
         </View>
-        <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '85%'}}>
+        <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '80%'}}>
+          <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
             <Text style={{
               padding: 20,
               fontSize: (this.state.defaultFontSize),
@@ -122,8 +122,8 @@ class Reader extends React.Component {
               }}>
               {bookText[this.state.currentPage]}}
             </Text>
-          </ScrollView>
-        </GestureRecognizer>
+          </GestureRecognizer>
+        </ScrollView>
         <View style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), flex: 1, flexDirection: 'row', paddingRight: 20, paddingLeft: 20, justifyContent: 'space-between'}}>
           <Button style={styles.decFont} color="#53E69B" onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
           <Button style={styles.incFont} color="#53E69B" onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
