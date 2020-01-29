@@ -124,7 +124,7 @@ class Reader extends React.Component {
             </Text>
           </ScrollView>
         </GestureRecognizer>
-        <View style={styles.fontButtons}>
+        <View style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), flex: 1, flexDirection: 'row', paddingRight: 20, paddingLeft: 20, justifyContent: 'space-between'}}>
           <Button style={styles.decFont} color="#53E69B" onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
           <Button style={styles.incFont} color="#53E69B" onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
           <Button color="#53E69B" onPress={ this.toggleDyslexicFont.bind(this) } title={this.state.defaultFontFamily === true ? 'Dyslexic Font' : 'Standard Font'} />
@@ -145,13 +145,6 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenDyslexic2',
     flex: 1,
     flexDirection: 'column'
-  },
-  fontButtons: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingRight: 20,
-    paddingLeft: 20,
-    justifyContent: 'space-between'
   },
   pageNum: {
     color: '#999999',
