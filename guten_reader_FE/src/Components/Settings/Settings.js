@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, Picker, StyleSheet } from 'react-native';
+import { View, Text, Picker, StyleSheet, StatusBar } from 'react-native';
 
 class Settings extends Component {
+  static navigationOptions = {
+    title: 'Settings',
+    headerTintColor: '#53E69B',
+    headerTitleStyle: {
+      color: '#000000',
+    }
+  }
+
   constructor() {
     super();
     this.state = {
@@ -15,6 +23,7 @@ class Settings extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="dark-content" />
         <Text style={styles.text}>Settings Component</Text>
         <Text style={styles.text}>Genre: {this.state.musicGenre}</Text>
         <Text style={styles.text}>font: {this.state.font}</Text>
@@ -32,7 +41,7 @@ class Settings extends Component {
           <Picker.Item label="Metal" value="metal" />
           <Picker.Item label="Techno" value="techno" />
           </Picker>
-          
+
           <Picker
             style={styles.picker}
             selectedValue={this.state.font}

@@ -9,8 +9,12 @@ import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from
 
 class Reader extends React.Component {
   static navigationOptions = {
-    title: 'Reader'
-  }
+    title: 'Reader',
+    headerTintColor: '#53E69B',
+    headerTitleStyle: {
+        color: 'black',
+      }
+    }
 
   constructor() {
     super();
@@ -108,14 +112,8 @@ class Reader extends React.Component {
           <Text style={styles.bookTitle}>{bookTitle}</Text>
           <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
         </View>
-        <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
-            <View style={styles.fontButtons}>
-              <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
-              <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
-              <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Font" />
-              <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Dark Mode' : 'Light Mode'} />
-            </View>
+        <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '80%'}}>
+          <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
             <Text style={{
               padding: 20,
               fontSize: (this.state.defaultFontSize),
@@ -124,8 +122,14 @@ class Reader extends React.Component {
               }}>
               {bookText[this.state.currentPage]}}
             </Text>
-          </ScrollView>
-        </GestureRecognizer>
+          </GestureRecognizer>
+        </ScrollView>
+        <View style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), flex: 1, flexDirection: 'row', paddingRight: 20, paddingLeft: 20, justifyContent: 'space-between'}}>
+          <Button style={styles.decFont} color="#53E69B" onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
+          <Button style={styles.incFont} color="#53E69B" onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
+          <Button color="#53E69B" onPress={ this.toggleDyslexicFont.bind(this) } title={this.state.defaultFontFamily === true ? 'Dyslexic Font' : 'Standard Font'} />
+          <Button color="#53E69B" onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Light Mode' : 'Dark Mode'} />
+        </View>
       </View>
     )}
    }
@@ -141,13 +145,6 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenDyslexic2',
     flex: 1,
     flexDirection: 'column'
-  },
-  fontButtons: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingRight: 20,
-    paddingLeft: 20,
-    justifyContent: 'space-between'
   },
   pageNum: {
     color: '#999999',
@@ -165,6 +162,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 10,
     paddingBottom: 10
+  },
+  title: {
+    color: "black"
   }
 });
 
