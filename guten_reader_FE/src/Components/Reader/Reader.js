@@ -9,8 +9,12 @@ import { getToken, getRecommendation, postSongToPlayer, updateCurrentPage } from
 
 class Reader extends React.Component {
   static navigationOptions = {
-    title: 'Reader'
-  }
+    title: 'Reader',
+    headerTintColor: '#53E69B',
+    headerTitleStyle: {
+        color: 'black',
+      }
+    }
 
   constructor() {
     super();
@@ -165,6 +169,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 10,
     paddingBottom: 10
+  },
+  title: {
+    color: "black"
   }
 });
 

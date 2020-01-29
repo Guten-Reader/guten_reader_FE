@@ -9,6 +9,7 @@ class Search extends Component {
     headerStyle: {
        backgroundColor: '#000000',
      },
+    headerTintColor: '#53E69B',
     headerTitleStyle: {
       color: '#FFFFFF',
     }
