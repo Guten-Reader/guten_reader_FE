@@ -117,8 +117,8 @@ class Reader extends React.Component {
             <View style={styles.fontButtons}>
               <Button style={styles.decFont} onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
               <Button style={styles.incFont} onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
-              <Button onPress={ this.toggleDyslexicFont.bind(this) } title="Dyslexic Font" />
-              <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Dark Mode' : 'Light Mode'} />
+              <Button onPress={ this.toggleDyslexicFont.bind(this) } title={this.state.defaultFontFamily === true ? 'Dyslexic Font' : 'Standard Font'} />
+              <Button onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Light Mode' : 'Dark Mode'} />
             </View>
             <Text style={{
               padding: 20,
