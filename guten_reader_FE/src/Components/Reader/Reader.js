@@ -113,13 +113,7 @@ class Reader extends React.Component {
           <Text style={styles.pageNum}>{this.state.currentPage} / {currentText.length}</Text>
         </View>
         <GestureRecognizer onSwipeLeft={this.onSwipeLeft.bind(this)} onSwipeRight={this.onSwipeRight.bind(this)}>
-          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '100%'}}>
-            <View style={styles.fontButtons}>
-              <Button style={styles.decFont} color="#53E69B" onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
-              <Button style={styles.incFont} color="#53E69B" onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
-              <Button color="#53E69B" onPress={ this.toggleDyslexicFont.bind(this) } title={this.state.defaultFontFamily === true ? 'Dyslexic Font' : 'Standard Font'} />
-              <Button color="#53E69B" onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Light Mode' : 'Dark Mode'} />
-            </View>
+          <ScrollView style={{backgroundColor: (this.state.isOnDarkMode === true ? 'black' : 'white'), height: '85%'}}>
             <Text style={{
               padding: 20,
               fontSize: (this.state.defaultFontSize),
@@ -130,6 +124,12 @@ class Reader extends React.Component {
             </Text>
           </ScrollView>
         </GestureRecognizer>
+        <View style={styles.fontButtons}>
+          <Button style={styles.decFont} color="#53E69B" onPress={ this.decreaseFontSize.bind(this)} title="-" titleStyle={{fontSize: 16}} />
+          <Button style={styles.incFont} color="#53E69B" onPress={ this.increaseFontSize.bind(this) } title="+" titleStyle={{fontSize: 32}}/>
+          <Button color="#53E69B" onPress={ this.toggleDyslexicFont.bind(this) } title={this.state.defaultFontFamily === true ? 'Dyslexic Font' : 'Standard Font'} />
+          <Button color="#53E69B" onPress={ this.toggleDarkMode.bind(this) } title={this.state.isOnDarkMode === true ? 'Light Mode' : 'Dark Mode'} />
+        </View>
       </View>
     )}
    }
