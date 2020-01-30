@@ -1,8 +1,10 @@
-# Guten Reader
+<img width="1438" alt="Screen Shot 2020-01-29 at 4 46 05 PM" src="https://user-images.githubusercontent.com/46699896/73474003-9e135580-4385-11ea-9392-75e1a62e5239.png">
 
-Living in a small, paper-thin walled apartment in Denver, Fenton was reading a book late one night. As the story is intensifying, so is Fenton's heart rate, and also the plot in neighbor's TV show in the apartment next door. Fenton turns the page to read something astonishing as the show reaches its peak plot and music volume!!
+# GutenReader
 
-Guten Reader is an eReader that performs sentiment analysis of the text on the page and plays a song as you read that matches the mood of text!
+Living in a small, paper-thin walled apartment in Denver, Fenton was reading a book late one night. As the story was intensifying, so was Fenton's heart rate, and also the plot in neighbor's TV show in the apartment next door. Fenton turned the page to read something astonishing as the show reached its peak plot and music volume!!
+
+GutenReader provides the user with a cinematic experience. It is an eReader built on the Project Gutenberg API that performs sentiment analysis (with IBM Watson) to determine the mood of the current page and plays music (with Spotify) that matches that mood. Designed with accessibility in mind!
 
 ### Focuses
 
@@ -16,33 +18,35 @@ Guten Reader is an eReader that performs sentiment analysis of the text on the p
 
 - Follow a professional GitHub workflow.
 
-### Screenshots
-![guten-reader](https://user-images.githubusercontent.com/50784336/72040161-eea30180-3264-11ea-965d-b347b1b3fb7e.gif)
+### App Demo
+Watch demo here https://www.youtube.com/watch?v=OcsrT65ifnE&amp=&feature=youtu.be%3Fvq%3Dhd1080
 
-Design Inspiration
+### Design Inspiration
 <img width="876" alt="Screen Shot 2020-01-09 at 8 53 28 AM" src="https://user-images.githubusercontent.com/50784336/72082610-a95eee00-32bd-11ea-94f3-64d9d1ff4226.png">
 
-Design Prototype
-
+### Design Prototype
 Clickable Design Prototype https://projects.invisionapp.com/prototype/ck491d4lz0058ni0156nxsjth/play
 
+### Screenshots
 Splash Page
 - While the initial content and application is loading, the user will see this page.
 
-<img width="348" alt="Screen Shot 2020-01-09 at 8 56 15 AM" src="https://user-images.githubusercontent.com/50784336/72082772-ee832000-32bd-11ea-9c92-22acc3bef580.png">
+<img width="348" alt="Splash Screen" src="https://user-images.githubusercontent.com/46699896/73474141-ddda3d00-4385-11ea-8ce4-f65ce9f58c55.png">
 
-The App
 <img width="854" alt="Screen Shot 2020-01-08 at 9 51 35 PM" src="https://user-images.githubusercontent.com/50784336/72039160-39bb1580-3261-11ea-997c-d5f0b74d824d.png">
 
 <img width="578" alt="Screen Shot 2020-01-08 at 9 52 39 PM" src="https://user-images.githubusercontent.com/50784336/72039163-3b84d900-3261-11ea-8650-35270fb716c9.png">
 
-<img width="947" alt="Screen Shot 2020-01-08 at 9 31 44 PM" src="https://user-images.githubusercontent.com/50784336/72038922-61f64480-3260-11ea-97be-17cf3fae60a3.png">
+Spotify
+- In the background, Spotify is open, creating playlists, and playing songs that match the mood of page currently being read.
+
+<img width="947" alt="Spotify" src="https://user-images.githubusercontent.com/50784336/72038922-61f64480-3260-11ea-97be-17cf3fae60a3.png">
 
 ### Tech
 
 - Front End created in React Native and tested with Jest/Enzyme.
 
-- Back End created in Rails and Sinatra and tested in rspec and unittest.
+- Back End created in Rails and Flask and tested in rspec and unittest.
 
 ### Team
 
@@ -62,11 +66,11 @@ The App
 
 ### Resources
 
-- Project Gutenberg https://www.gutenberg.org/wiki/Main_Page
+- Project Gutenberg (Free eBooks) https://www.gutenberg.org/wiki/Main_Page
 
-- Sentiment Analysis https://monkeylearn.com/
+- IBM Watson (Sentiment Analysis) https://www.ibm.com/watson
 
-- Spotify Player https://developer.spotify.com/documentation/web-api/reference/player/
+- Spotify Player (Music Provider) https://developer.spotify.com/documentation/web-api/reference/player/
 
 ### Set Up
 
