@@ -38,8 +38,8 @@ class Settings extends Component {
               this.setState({ musicGenre: itemValue})
           }>
           <Picker.Item label="Classical" value="classical" />
-          <Picker.Item label="Metal" value="metal" />
-          <Picker.Item label="Techno" value="techno" />
+          <Picker.Item label="Piano" value="piano" />
+          <Picker.Item label="Electronic" value="electronic" />
           </Picker>
 
           <Picker
@@ -49,7 +49,7 @@ class Settings extends Component {
               this.setState({ font: itemValue})
           }>
           <Picker.Item label="Roboto" value="roboto" />
-          <Picker.Item label="Dyslexic" value="dyslexic" />
+          <Picker.Item label="OpenDyslexic" value="dyslexic" />
           </Picker>
 
           <Picker
@@ -59,7 +59,11 @@ class Settings extends Component {
               this.setState({ fontSize: itemValue})
           }>
           <Picker.Item label="Size 12" value="12" />
+          <Picker.Item label="Size 16" value="16" />
           <Picker.Item label="Size 20" value="20" />
+          <Picker.Item label="Size 24" value="24" />
+          <Picker.Item label="Size 28" value="28" />
+          <Picker.Item label="Size 32" value="32" />
           <Picker.Item label="Size 36" value="36" />
           </Picker>
 
