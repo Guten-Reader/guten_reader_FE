@@ -28,14 +28,10 @@ Watch demo here https://www.youtube.com/watch?v=OcsrT65ifnE&amp=&feature=youtu.b
 Clickable Design Prototype https://projects.invisionapp.com/prototype/ck491d4lz0058ni0156nxsjth/play
 
 ### Screenshots
-Splash Page
-- While the initial content and application is loading, the user will see this page.
+The App
+- The next 9 screens so the process of moving through the application from load, to searching/downloading a new book, to reading, to adjusting font and screen settings.
 
-<img width="348" alt="Splash Screen" src="https://user-images.githubusercontent.com/46699896/73474141-ddda3d00-4385-11ea-8ce4-f65ce9f58c55.png">
-
-<img width="854" alt="Screen Shot 2020-01-08 at 9 51 35 PM" src="https://user-images.githubusercontent.com/50784336/72039160-39bb1580-3261-11ea-997c-d5f0b74d824d.png">
-
-<img width="578" alt="Screen Shot 2020-01-08 at 9 52 39 PM" src="https://user-images.githubusercontent.com/50784336/72039163-3b84d900-3261-11ea-8650-35270fb716c9.png">
+![GutenReader_screenshots](https://user-images.githubusercontent.com/46699896/73477659-973c1100-438c-11ea-9952-b58310fc3e77.png)
 
 Spotify
 - In the background, Spotify is open, creating playlists, and playing songs that match the mood of page currently being read.
@@ -74,13 +70,17 @@ Spotify
 
 ### Set Up
 
-Clone repo.
+Clone repo (2nd level guten_reader_FE directory).
 ```
 git clone
 ```
 Install dependencies.
 ```
 npm install
+```
+Install Expo globally.
+```
+npm install -g expo-cli
 ```
 Run browser.
 ```
