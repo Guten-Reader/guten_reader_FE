@@ -68,6 +68,8 @@ Spotify
 
 - Spotify Player (Music Provider) https://developer.spotify.com/documentation/web-api/reference/player/
 
+- Johannes Gutenberg (Stock Image) https://stock.adobe.com/images/johannes-gutenberg/92531603?as_channel=affiliate&as_campaign=pexels&as_source=arvato&tduid=79720a9cdd790d67ed77be437ccfaee4&as_channel=affiliate&as_campclass=redirect&as_source=arvat
+
 ### Set Up
 
 Clone repo (2nd level guten_reader_FE directory).
