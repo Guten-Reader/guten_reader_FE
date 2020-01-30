@@ -7,10 +7,11 @@ class Search extends Component {
   static navigationOptions = {
     title: 'Search',
     headerStyle: {
-       backgroundColor: '#000000',
+       backgroundColor: '#FFFFFF',
      },
+    headerTintColor: '#53E69B',
     headerTitleStyle: {
-      color: '#FFFFFF',
+      color: '#000000',
     }
   }
 
@@ -72,7 +73,7 @@ class Search extends Component {
 
     return (
       <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="dark-content" />
         <Text style={styles.title}>Search by Title or Author:</Text>
         <View style={styles.search}>
           <TextInput
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
    fontSize: 25,
    borderWidth: 1,
    borderColor: '#d6d7da',
-   padding: 9.5,
+   padding: 9.4,
  },
  search: {
    alignItems: 'center',

@@ -3,9 +3,9 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Reader from './src/Components/Reader/Reader.js';
 import Library from './src/Components/Library/Library.js';
 import Search from './src/Components/Search/Search.js';
+import Settings from './src/Components/Settings/Settings'
 import 'react-native-gesture-handler';
 
-console.disableYellowBox = true;
 
 const MainNavigator = createStackNavigator({
 
@@ -17,15 +17,12 @@ const MainNavigator = createStackNavigator({
   },
   Reader: {
     screen: Reader,
-    navigationOptions: {
-      header: null,
-    }
   },
   Search: {
     screen: Search,
-    navigationOptions: {
-      header: null,
-    }
+  },
+  Settings: {
+    screen: Settings,
   }
 });
 
