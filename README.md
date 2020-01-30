@@ -46,7 +46,7 @@ Spotify
 
 ### Team
 
-## Front End
+**Front End**
 
 - Quinne Farenwald https://github.com/qfarenwald
 
@@ -54,7 +54,7 @@ Spotify
 
 - Michael Schneider https://github.com/mschneider247
 
-## Back End
+**Back End**
 
 - Fenton Taylor https://github.com/fentontaylor
 
